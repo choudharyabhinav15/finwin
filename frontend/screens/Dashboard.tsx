@@ -14,7 +14,14 @@ const Dashboard = ({ navigation }: any) => {
       </Appbar.Header>
       <ScrollView style={styles.container}>
         <FinancialIndexBar index={financialHealthIndex} />
-        {/* ... rest of dashboard ... */}
+        <Card style={{ marginVertical: 16 }}>
+          <Card.Content>
+            <Text variant="titleLarge">Welcome to Your Dashboard</Text>
+            <Text variant="bodyMedium" style={{ marginTop: 8 }}>
+              Here you can track your financial health and manage your investments.
+            </Text>
+          </Card.Content>
+        </Card>
       </ScrollView>
     </>
   );

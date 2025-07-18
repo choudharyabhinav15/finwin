@@ -4,5 +4,11 @@
     "name": "Abhinav Choudhary",
     "email": "admin@gmail.com",
     "password": "$2b$10$ia8bZt5FtsEwKEE8IsKLCe51.XtFHftCP1YHSCcAcGVIaFP9y/B6q"
+  },
+  {
+    "id": "60332980-f1b5-41cc-a11d-8b1bd54418f6",
+    "name": "Admin",
+    "email": "admin3@gmail.com",
+    "password": "$2b$10$LVdMwYMMJKN/h3IqGVUNkOCDwKvLJH2jwbgudBjHk3iCSne46WEXu"
   }
 ]

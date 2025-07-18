@@ -42,7 +42,29 @@ cd ../frontend
 npm install
 ```
 
-### 5. Start the React Native App
+
+### 4. Set Up the Frontend
+
+```bash
+cd ../frontend
+npm install
+```
+
+
+### 5. Configure Environment Variables
+
+To allow the mobile app to communicate with your local backend server, you need to configure the API base URL. 
+- Create a .env file inside the frontend directory.
+- Add the following line to frontend/.env, replacing <YOUR_SYSTEM_IP> with your computer's local IP address: 
+
+```bash
+API_BASE_URL=http://<YOUR_SYSTEM_IP>:3000
+LOCAL_API_URL=http://localhost:3000
+```
+
+Note: LOCAL_API_URL is required to run the mobile app as web.
+
+### 6. Start the React Native App
 
 ```bash
 npx expo start

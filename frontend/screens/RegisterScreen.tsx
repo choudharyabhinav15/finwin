@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, StyleSheet, Platform } from 'react-native';
 import { Button, TextInput, Text, Snackbar } from 'react-native-paper';
 import axios, { isAxiosError } from 'axios';
+import { API_URL, LOCAL_API_URL } from '@env';
 
 interface Props {
   onRegister: () => void;
@@ -28,8 +29,8 @@ const RegisterScreen = ({ onRegister, onNavigateLogin }: Props) => {
 
   const register = async () => {
     try {
-      const ip = Platform.OS === 'android' ? '192.168.29.238' : 'localhost';
-      await axios.post(`http://${ip}:3000/api/register`, { name, email, password, confirmPassword });
+      const apiUrl = Platform.OS === 'web' ? LOCAL_API_URL : API_URL;
+      await axios.post(`${apiUrl}/api/register`, { name, email, password, confirmPassword });
       setRegistrationSuccess(true);
     } catch (e: any) {
       if (isAxiosError(e) && e.response?.data?.message) {

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Platform, View } from 'react-native';
 import { TextInput, Button, Text, Snackbar } from 'react-native-paper';
+import { API_URL, LOCAL_API_URL } from '@env';
 
 type Props = {
   onLogin: (userData: { name: string; email: string }) => Promise<void>;
@@ -25,8 +26,8 @@ const LoginScreen = ({ onLogin, onNavigateRegister }: Props) => {
 
   const handleLogin = async () => {
     try {
-      const ip = Platform.OS === 'android' ? '192.168.29.238' : 'localhost';
-      const response = await fetch(`http://${ip}:3000/api/login`, {
+      const apiUrl = Platform.OS === 'web' ? LOCAL_API_URL : API_URL;
+      const response = await fetch(`${apiUrl}/api/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -35,7 +36,6 @@ const LoginScreen = ({ onLogin, onNavigateRegister }: Props) => {
       const data = await response.json();
 
       if (response.ok) {
-        // ✅ Call onLogin with user info
         onLogin({ name: data.name, email: data.email });
       } else {
         showSnackbar(data.message || 'Login failed', true);

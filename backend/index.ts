@@ -31,15 +31,12 @@ const usersPath = path.join(__dirname, 'users.json');
 let users: User[] = [];
 
 try {
-  // Check if the file exists before trying to read it
   if (fs.existsSync(usersPath)) {
     const fileContent = fs.readFileSync(usersPath, 'utf8');
-    // Ensure the file is not empty and is valid JSON before parsing
     if (fileContent) {
       const parsedData = JSON.parse(fileContent);
       if (Array.isArray(parsedData)) {
         users = parsedData as User[];
-        // Assign unique IDs to users who don't have one (for backward compatibility)
         let usersModified = false;
         users.forEach((user: Partial<User>) => {
           if (!user.id) {
@@ -79,7 +76,6 @@ function calculateFinancialIndex(financial: FinancialData): number {
 
   const progressRatio = saved / goalAmount;
 
-  // Handle division by zero for spendingEfficiency.
   // If spending is 0, it's impossible to gauge efficiency. Let's treat it as highly efficient (capped).
   const spendingEfficiency = monthlySpending > 0 ? requiredMonthlySaving / monthlySpending : 2.0;
 
