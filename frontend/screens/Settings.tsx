@@ -1,8 +1,22 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
+import { Appbar } from 'react-native-paper';
 
-const Settings = () => {
-  return <View><Text>Settings Screen</Text></View>;
+const Settings = ({ navigation }: any) => {
+  return (
+    <>
+      <Appbar.Header style={{ backgroundColor: '#5b00ff' }}>
+        <Appbar.Action icon="menu" color="#fff" onPress={() => navigation.openDrawer()} />
+        <Appbar.Content title="Settings" titleStyle={{ color: '#fff' }} />
+      </Appbar.Header>
+      <ScrollView style={styles.container}>
+        
+      </ScrollView>
+    </>
+  );
 };
 
+const styles = StyleSheet.create({
+  container: { padding: 16 },
+});
 export default Settings;
