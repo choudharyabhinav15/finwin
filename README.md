@@ -45,5 +45,3 @@ npx expo start
 ```
 
 Scan the QR code using **Expo Go** (Install from PlayStore / AppleStore) on your device. Make sure your devide and system both are connected to same wifi.
-
----
