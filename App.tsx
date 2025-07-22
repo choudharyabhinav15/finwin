@@ -1,18 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator, DrawerContentScrollView, DrawerItem, DrawerContentComponentProps, DrawerNavigationProp } from '@react-navigation/drawer';
+import {
+  createDrawerNavigator,
+  DrawerContentScrollView,
+  DrawerItem,
+  DrawerContentComponentProps,
+  DrawerNavigationProp,
+} from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Appbar } from 'react-native-paper';
-import { Provider as PaperProvider, Avatar, Text, ActivityIndicator } from 'react-native-paper';
-import { View, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { Session } from '@supabase/supabase-js';
 import { supabase } from './lib/supabase';
 import LoginScreen from './screens/LoginScreen';
 import Home from './screens/Home';
 import Settings from './screens/Settings';
-import AddData from './screens/AddData';
+import SmartGoals from './screens/SmartGoals';
 import RegisterScreen from './screens/RegisterScreen';
+import { Ionicons } from '@expo/vector-icons';
+import AddGoals from './screens/AddGoals';
+
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -25,23 +32,70 @@ type FooterTabsProps = {
 const FooterTabs = ({ navigation }: FooterTabsProps) => (
   <Tab.Navigator
     screenOptions={{
-      header: () => (
-        <Appbar.Header>
-          <Appbar.Action
-            icon="menu"
-            color="#000"
-            onPress={() => navigation.openDrawer()}
-          />
-        </Appbar.Header>
+      headerLeft: () => (
+        <TouchableOpacity
+          style={{ marginLeft: 15 }}
+          onPress={() => navigation.toggleDrawer()}
+        >
+          <Ionicons name="menu" size={24} color="black" />
+        </TouchableOpacity>
       ),
-      tabBarStyle: { backgroundColor: '#fff', borderTopLeftRadius: 20, borderTopRightRadius: 20, elevation: 5 },
+      headerShown: true,
+      tabBarStyle: {
+        backgroundColor: '#fff',
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        elevation: 5,
+      },
       tabBarActiveTintColor: '#5b00ff',
       tabBarInactiveTintColor: 'gray',
     }}
   >
-    <Tab.Screen name="Home" component={Home} />
-    <Tab.Screen name="AddData" component={AddData} />
-    <Tab.Screen name="Settings" component={Settings} />
+    <Tab.Screen
+      name="Home"
+      component={Home}
+      options={{
+        headerShown: true,
+        headerTitle: 'Home',
+        tabBarIcon: ({ color, size }) => (
+          <Ionicons name="home-outline" color={color} size={size} />
+        ),
+      }}
+    />
+    <Tab.Screen
+      name="AddGoals"
+      component={AddGoals}
+      options={{
+        headerShown: true,
+        headerTitle: 'Add a New Goal',
+        tabBarIcon: ({ color, size }) => (
+          <Ionicons name="add-circle-outline" color={color} size={size} />
+        ),
+      }}
+    />
+
+    <Tab.Screen
+      name="SmartGoals"
+      component={SmartGoals}
+      options={{
+        headerShown: true,
+        headerTitle: 'Goals',
+        tabBarIcon: ({ color, size }) => (
+          <Ionicons name="trophy-outline" color={color} size={size} />
+        ),
+      }}
+    />
+    <Tab.Screen
+      name="Settings"
+      component={Settings}
+      options={{
+        headerShown: true,
+        headerTitle: 'Settings',
+        tabBarIcon: ({ color, size }) => (
+          <Ionicons name="settings-outline" color={color} size={size} />
+        ),
+      }}
+    />
   </Tab.Navigator>
 );
 
@@ -55,14 +109,23 @@ const CustomDrawerContent = (props: CustomDrawerProps) => {
   return (
     <DrawerContentScrollView {...props}>
       <View style={styles.profileSection}>
-        <Avatar.Icon size={60} icon="account" style={{ backgroundColor: '#5b00ff' }} />
+        <TouchableOpacity onPress={onLogout} style={styles.logoutButton}>
+          <Ionicons name="log-out-outline" size={24} color="gray" />
+        </TouchableOpacity>
+        <Ionicons name="person-circle-outline" size={60} color="#5b00ff" />
         <Text style={styles.name}>{session?.user?.user_metadata?.name || 'FinWin User'}</Text>
         <Text style={styles.email}>{session?.user?.email}</Text>
       </View>
-      <DrawerItem label="Home" icon={() => <Avatar.Icon size={24} icon="view-dashboard" style={styles.drawerIcon} />} onPress={() => props.navigation.navigate('Main', { screen: 'Home' })} />
-      <DrawerItem label="Add Data" icon={() => <Avatar.Icon size={24} icon="plus-box" style={styles.drawerIcon} />} onPress={() => props.navigation.navigate('Main', { screen: 'AddData' })} />
-      <DrawerItem label="Settings" icon={() => <Avatar.Icon size={24} icon="cog" style={styles.drawerIcon} />} onPress={() => props.navigation.navigate('Main', { screen: 'Settings' })} />
-      <DrawerItem label="Logout" icon={() => <Avatar.Icon size={24} icon="logout" style={styles.drawerIcon} />} onPress={onLogout} />
+      <DrawerItem
+        label="Home"
+        icon={({ color, size }) => <Ionicons name="home-outline" size={size} color={color} />}
+        onPress={() => props.navigation.navigate('Main', { screen: 'Home' })}
+      />
+      <DrawerItem
+        label="Smart Goals"
+        icon={({ color, size }) => <Ionicons name="trophy-outline" size={size} color={color} />}
+        onPress={() => props.navigation.navigate('Main', { screen: 'SmartGoals' })}
+      />
     </DrawerContentScrollView>
   );
 };
@@ -99,26 +162,30 @@ export default function App() {
   if (loading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator animating={true} size="large" />
+        <ActivityIndicator size="large" color="#5b00ff" />
       </View>
     );
   }
 
   return (
-    <PaperProvider>
-      <NavigationContainer>
-        {session && session.user ? (
-          <Drawer.Navigator
-            screenOptions={{ drawerType: 'slide', headerShown: false }}
-            drawerContent={(props) => <CustomDrawerContent {...props} session={session} onLogout={handleLogout} />}
-          >
-            <Drawer.Screen name="Main" component={FooterTabs} options={{ headerShown: false }} />
-          </Drawer.Navigator>
-        ) : (
-          <AuthNavigator />
-        )}
-      </NavigationContainer>
-    </PaperProvider>
+    <NavigationContainer>
+      {session && session.user ? (
+        <Drawer.Navigator
+          screenOptions={{
+            drawerType: 'front',
+            headerShown: false,
+            gestureEnabled: false,
+          }}
+          drawerContent={(props) => (
+            <CustomDrawerContent {...props} session={session} onLogout={handleLogout} />
+          )}
+        >
+          <Drawer.Screen name="Main" component={FooterTabs} options={{ headerShown: false }} />
+        </Drawer.Navigator>
+      ) : (
+        <AuthNavigator />
+      )}
+    </NavigationContainer>
   );
 }
 
@@ -128,19 +195,22 @@ const styles = StyleSheet.create({
     paddingVertical: 25,
     borderBottomWidth: 1,
     borderBottomColor: '#e0e0e0',
-    backgroundColor: '#f9f9f9'
+    backgroundColor: '#f9f9f9',
+  },
+  logoutButton: {
+    position: 'absolute',
+    top: 15,
+    right: 15,
+    zIndex: 1,
   },
   name: {
     marginTop: 10,
     fontWeight: 'bold',
     fontSize: 18,
-    color: '#333'
+    color: '#333',
   },
   email: {
     fontSize: 14,
-    color: 'gray'
+    color: 'gray',
   },
-  drawerIcon: {
-    backgroundColor: '#f0f0f0'
-  }
 });

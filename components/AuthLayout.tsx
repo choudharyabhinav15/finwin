@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
-import { Avatar, Text } from 'react-native-paper';
+import { View, StyleSheet, ScrollView, Image, Text } from 'react-native';
 
 type AuthLayoutProps = {
   children: React.ReactNode;
@@ -10,25 +9,17 @@ type AuthLayoutProps = {
 const AuthLayout = ({ children, title }: AuthLayoutProps) => {
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContent}>
-        <View style={styles.header}>
-        <Avatar.Icon size={80} icon="finance" style={styles.logo} />
-        <Text variant="headlineLarge" style={styles.title}>FinWin</Text>
-        <Text variant="titleMedium" style={styles.subtitle}>{title}</Text>
-        </View>
-        <View style={styles.formContainer}>
-        {children}
-        </View>
+      <View style={styles.header}>
+        <Image source={require('../assets/adaptive-icon.png')} style={styles.logo} />
+        <Text style={styles.title}>FinWin</Text>
+        <Text style={styles.subtitle}>{title}</Text>
+      </View>
+      <View style={styles.formContainer}>{children}</View>
     </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  keyboardView: {
-    flex: 1,
-  },
   scrollViewContent: {
     flexGrow: 1,
     justifyContent: 'center',
@@ -39,15 +30,19 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   logo: {
-    backgroundColor: '#5b00ff',
+    width: 80,
+    height: 80,
+    resizeMode: 'contain',
   },
   title: {
     color: '#5b00ff',
     fontWeight: 'bold',
+    fontSize: 28,
     marginTop: 16,
   },
   subtitle: {
     color: '#5b00ff',
+    fontSize: 16,
     marginTop: 8,
     opacity: 0.9,
   },

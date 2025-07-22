@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import { View, Alert, StyleSheet } from 'react-native';
-import { Button, TextInput, HelperText, Text, ActivityIndicator } from 'react-native-paper';
+import {
+  View,
+  StyleSheet,
+  TextInput as RNTextInput,
+  Text,
+  TouchableOpacity,
+  ActivityIndicator,
+  Alert,
+} from 'react-native';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { supabase } from '../lib/supabase';
 import AuthLayout from '../components/AuthLayout';
-import { StackNavigationProp } from '@react-navigation/stack';
-
-type RootStackParamList = {
-  Login: undefined;
-  Register: undefined;
-};
-
-type RegisterScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Register'>;
+import { RegisterScreenNavigationProp } from '../types/navigation';
 
 type Props = {
   navigation: RegisterScreenNavigationProp;
@@ -22,7 +23,13 @@ const RegisterScreen = ({ navigation }: Props) => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState<{ name?: string; email?: string; password?: string; confirmPassword?: string; form?: string }>({});
+  const [errors, setErrors] = useState<{
+    name?: string;
+    email?: string;
+    password?: string;
+    confirmPassword?: string;
+    form?: string;
+  }>({});
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
 
@@ -30,184 +37,201 @@ const RegisterScreen = ({ navigation }: Props) => {
     const newErrors: typeof errors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!name.trim()) {
-      newErrors.name = "Name is required.";
-    }
-
-    if (!email.trim()) {
-      newErrors.email = "Email is required.";
-    } else if (!emailRegex.test(email.trim())) {
-      newErrors.email = "Please enter a valid email address.";
-    }
-
-    if (!password) {
-      newErrors.password = "Password is required.";
-    } else if (password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters long.";
-    }
-
-    if (!confirmPassword) {
-      newErrors.confirmPassword = "Please confirm your password.";
-    } else if (password && password !== confirmPassword) {
-      newErrors.confirmPassword = "Passwords do not match.";
-    }
+    if (!name.trim()) newErrors.name = 'Name is required.';
+    if (!email.trim()) newErrors.email = 'Email is required.';
+    else if (!emailRegex.test(email.trim())) newErrors.email = 'Invalid email format.';
+    if (!password) newErrors.password = 'Password is required.';
+    else if (password.length < 6) newErrors.password = 'Min 6 characters required.';
+    if (!confirmPassword) newErrors.confirmPassword = 'Please confirm password.';
+    else if (password !== confirmPassword) newErrors.confirmPassword = 'Passwords do not match.';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  async function signUpWithEmail() {
+  const signUpWithEmail = async () => {
     setErrors({});
     if (!validateInputs()) return;
 
     setLoading(true);
-    const { data, error: signUpError } = await supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
       email: email.trim(),
       password,
       options: {
-        data: {
-          name: name.trim(),
-        },
+        data: { name: name.trim() },
       },
     });
 
-    if (signUpError) {
-      setErrors({ form: signUpError.message });
+    if (error) {
+      setErrors({ form: error.message });
     } else if (!data.session) {
-      Alert.alert('Success!', 'Please check your inbox for email verification.');
+      Alert.alert('Success!', 'Please check your email for a verification link.');
       navigation.navigate('Login');
     }
-    setLoading(false);
-  }
 
-  const areAllFieldsFilled = !!(name.trim() && email.trim() && password && confirmPassword);
+    setLoading(false);
+  };
 
   return (
     <AuthLayout title="Create Account">
-      <TextInput
-        label="Name"
-        value={name}
-        onChangeText={(text) => {
-          setName(text);
-          if (errors.name || errors.form) {
-            const { name, form, ...rest } = errors;
-            setErrors(rest);
-          }
-        }}
-        autoCapitalize="words"
-        style={styles.input}
-        left={<TextInput.Icon icon="account-outline" />}
-        error={!!errors.name}
-      />
-      {errors.name && <HelperText type="error" visible={!!errors.name}>{errors.name}</HelperText>}
+      <View style={styles.inputWrapper}>
+        <MaterialIcons name="person-outline" size={20} color="#5b00ff" style={styles.icon} />
+        <RNTextInput
+          placeholder="Name"
+          placeholderTextColor="#888"
+          value={name}
+          onChangeText={(text) => {
+            setName(text);
+            setErrors((prev) => ({ ...prev, name: undefined, form: undefined }));
+          }}
+          autoCapitalize="words"
+          style={styles.input}
+        />
+      </View>
+      {errors.name && <Text style={styles.errorText}>{errors.name}</Text>}
 
-      <TextInput
-        label="Email"
-        value={email}
-        onChangeText={(text) => {
-          setEmail(text);
-          if (errors.email || errors.form) {
-            const { email, form, ...rest } = errors;
-            setErrors(rest);
-          }
-        }}
-        autoCapitalize="none"
-        keyboardType="email-address"
-        style={styles.input}
-        left={<TextInput.Icon icon="email-outline" />}
-        error={!!errors.email}
-      />
-      {errors.email && <HelperText type="error" visible={!!errors.email}>{errors.email}</HelperText>}
+      <View style={styles.inputWrapper}>
+        <MaterialIcons name="email" size={20} color="#5b00ff" style={styles.icon} />
+        <RNTextInput
+          placeholder="Email"
+          placeholderTextColor="#888"
+          value={email}
+          onChangeText={(text) => {
+            setEmail(text);
+            setErrors((prev) => ({ ...prev, email: undefined, form: undefined }));
+          }}
+          keyboardType="email-address"
+          autoCapitalize="none"
+          style={styles.input}
+        />
+      </View>
+      {errors.email && <Text style={styles.errorText}>{errors.email}</Text>}
 
-      <TextInput
-        label="Password"
-        value={password}
-        onChangeText={(text) => {
-          setPassword(text);
-          if (errors.password || errors.form) {
-            const { password, form, ...rest } = errors;
-            setErrors(rest);
-          }
-        }}
-        secureTextEntry={!isPasswordVisible}
-        style={styles.input}
-        left={<TextInput.Icon icon="lock-outline" />}
-        right={<TextInput.Icon icon={isPasswordVisible ? "eye-off" : "eye"} onPress={() => setIsPasswordVisible(!isPasswordVisible)} />}
-        error={!!errors.password}
-      />
-      {errors.password && <HelperText type="error" visible={!!errors.password}>{errors.password}</HelperText>}
+      {/* Password */}
+      <View style={styles.inputWrapper}>
+        <MaterialIcons name="lock-outline" size={20} color="#5b00ff" style={styles.icon} />
+        <RNTextInput
+          placeholder="Password"
+          placeholderTextColor="#888"
+          value={password}
+          onChangeText={(text) => {
+            setPassword(text);
+            setErrors((prev) => ({ ...prev, password: undefined, form: undefined }));
+          }}
+          secureTextEntry={!isPasswordVisible}
+          style={styles.input}
+        />
+        <TouchableOpacity onPress={() => setIsPasswordVisible(!isPasswordVisible)}>
+          <Ionicons
+            name={isPasswordVisible ? 'eye-off' : 'eye'}
+            size={20}
+            color="#5b00ff"
+            style={styles.iconRight}
+          />
+        </TouchableOpacity>
+      </View>
+      {errors.password && <Text style={styles.errorText}>{errors.password}</Text>}
 
-      <TextInput
-        label="Confirm Password"
-        value={confirmPassword}
-        onChangeText={(text) => {
-          setConfirmPassword(text);
-          if (errors.confirmPassword || errors.form) {
-            const { confirmPassword, form, ...rest } = errors;
-            setErrors(rest);
-          }
-        }}
-        secureTextEntry={!isConfirmPasswordVisible}
-        style={styles.input}
-        left={<TextInput.Icon icon="lock-check-outline" />}
-        right={<TextInput.Icon icon={isConfirmPasswordVisible ? "eye-off" : "eye"} onPress={() => setIsConfirmPasswordVisible(!isConfirmPasswordVisible)} />}
-        error={!!errors.confirmPassword}
-      />
-      {errors.confirmPassword && <HelperText type="error" visible={!!errors.confirmPassword}>{errors.confirmPassword}</HelperText>}
-      {errors.form && <HelperText type="error" visible={!!errors.form} style={styles.errorText}>{errors.form}</HelperText>}
-      
-      <Button
-        mode="contained"
-        onPress={signUpWithEmail}
-        disabled={loading || !areAllFieldsFilled || Object.keys(errors).length > 0}
-        loading={loading}
-        style={styles.button}
-        labelStyle={styles.buttonLabel}
-        icon="account-plus"
-      >
-        Register
-      </Button>
+      {/* Confirm Password */}
+      <View style={styles.inputWrapper}>
+        <MaterialIcons name="lock" size={20} color="#5b00ff" style={styles.icon} />
+        <RNTextInput
+          placeholder="Confirm Password"
+          placeholderTextColor="#888"
+          value={confirmPassword}
+          onChangeText={(text) => {
+            setConfirmPassword(text);
+            setErrors((prev) => ({ ...prev, confirmPassword: undefined, form: undefined }));
+          }}
+          secureTextEntry={!isConfirmPasswordVisible}
+          style={styles.input}
+        />
+        <TouchableOpacity onPress={() => setIsConfirmPasswordVisible(!isConfirmPasswordVisible)}>
+          <Ionicons
+            name={isConfirmPasswordVisible ? 'eye-off' : 'eye'}
+            size={20}
+            color="#5b00ff"
+            style={styles.iconRight}
+          />
+        </TouchableOpacity>
+      </View>
+      {errors.confirmPassword && <Text style={styles.errorText}>{errors.confirmPassword}</Text>}
 
+      {/* Form-level Error */}
+      {errors.form && <Text style={styles.errorText}>{errors.form}</Text>}
+
+      {/* Submit */}
+      {loading ? (
+        <ActivityIndicator color="#5b00ff" style={styles.button} />
+      ) : (
+        <TouchableOpacity
+          style={styles.button}
+          onPress={signUpWithEmail}
+          disabled={loading}
+        >
+          <Text style={styles.buttonText}>Register</Text>
+        </TouchableOpacity>
+      )}
+
+      {/* Footer */}
       <View style={styles.footer}>
-         <Text>Already have an account? </Text>
-        <Button onPress={() => navigation.navigate('Login')} disabled={loading} labelStyle={styles.linkButton} style={styles.signInButton}>
-          Sign In
-        </Button>
+        <Text>Already have an account? </Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Login')} disabled={loading}>
+          <Text style={styles.link}>Sign In</Text>
+        </TouchableOpacity>
       </View>
     </AuthLayout>
   );
 };
 
 const styles = StyleSheet.create({
+  inputWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#f4f4f4',
+    paddingHorizontal: 12,
+    borderRadius: 8,
+    marginBottom: 12,
+  },
   input: {
-    marginBottom: 2,
-    backgroundColor: 'transparent',
+    flex: 1,
+    paddingVertical: 12,
+    paddingHorizontal: 8,
+    fontSize: 16,
+    color: '#333',
+  },
+  icon: {
+    marginRight: 8,
+  },
+  iconRight: {
+    padding: 4,
+  },
+  errorText: {
+    color: '#d9534f',
+    marginBottom: 6,
+    marginLeft: 8,
+    fontSize: 13,
   },
   button: {
+    backgroundColor: '#5b00ff',
+    paddingVertical: 12,
+    borderRadius: 8,
     marginTop: 10,
-    paddingVertical: 8,
-    borderRadius: 30,
   },
-  buttonLabel: {
-    fontSize: 16,
+  buttonText: {
+    color: '#fff',
     fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: 16,
   },
   footer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
     marginTop: 20,
   },
-  linkButton: {
+  link: {
+    color: '#5b00ff',
     fontWeight: 'bold',
-  },
-  signInButton: {
-    // Nudge the button up slightly to align text baselines
-    transform: [{ translateY: -1 }],
-  },
-  errorText: {
-    textAlign: 'center',
-    marginBottom: 8,
   },
 });
 

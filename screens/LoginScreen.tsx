@@ -1,16 +1,9 @@
 import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { TextInput, Button, Text, ActivityIndicator, HelperText } from 'react-native-paper';
+import { View, StyleSheet, TextInput as RNTextInput, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { supabase } from '../lib/supabase';
 import AuthLayout from '../components/AuthLayout';
-import { StackNavigationProp } from '@react-navigation/stack';
-
-type RootStackParamList = {
-  Login: undefined;
-  Register: undefined;
-};
-
-type LoginScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Login'>;
+import { LoginScreenNavigationProp } from '../types/navigation';
 
 type Props = {
   navigation: LoginScreenNavigationProp;
@@ -24,98 +17,138 @@ const LoginScreen = ({ navigation }: Props) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const handleLogin = async () => {
-    setError(null);
-    setLoading(true);
-    const { error: signInError } = await supabase.auth.signInWithPassword({
-      email: email.trim(),
-      password: password,
-    });
+  setError(null);
 
-    if (signInError) {
+  const trimmedEmail = email.trim();
+
+  if (!trimmedEmail || !password) {
+    setError("Please enter both email and password.");
+    return;
+  }
+
+  setLoading(true);
+  const { error: signInError } = await supabase.auth.signInWithPassword({
+    email: trimmedEmail,
+    password,
+  });
+
+  if (signInError) {
+    if (signInError.message.toLowerCase().includes("missing email or phone")) {
+      setError("Email is required to login.");
+    } else {
       setError(signInError.message);
     }
-    setLoading(false);
-  };
+  }
+
+  setLoading(false);
+};
+
 
   return (
     <AuthLayout title="Login to Your Account">
-      <TextInput
-        label="Email"
-        value={email}
-        onChangeText={(text) => {
-          setEmail(text);
-          if (error) setError(null);
-        }}
-        style={styles.input}
-        autoCapitalize="none"
-        keyboardType="email-address"
-        left={<TextInput.Icon icon="email-outline" />}
-        error={!!error}
-      />
-      <TextInput
-        label="Password"
-        value={password}
-        onChangeText={(text) => {
-          setPassword(text);
-          if (error) setError(null);
-        }}
-        secureTextEntry={!isPasswordVisible}
-        style={styles.input}
-        left={<TextInput.Icon icon="lock-outline" />}
-        right={<TextInput.Icon icon={isPasswordVisible ? "eye-off" : "eye"} onPress={() => setIsPasswordVisible(!isPasswordVisible)} />}
-        error={!!error}
-      />
-      {error && <HelperText type="error" visible={!!error} style={styles.errorText}>{error}</HelperText>}
+      <View style={styles.inputWrapper}>
+        <MaterialIcons name="email" size={20} color="#5b00ff" style={styles.icon} />
+        <RNTextInput
+          placeholder="Email"
+          placeholderTextColor="#888"
+          value={email}
+          onChangeText={setEmail}
+          keyboardType="email-address"
+          autoCapitalize="none"
+          style={styles.input}
+        />
+      </View>
+
+      <View style={styles.inputWrapper}>
+        <MaterialIcons name="lock-outline" size={20} color="#5b00ff" style={styles.icon} />
+        <RNTextInput
+          placeholder="Password"
+          placeholderTextColor="#888"
+          secureTextEntry={!isPasswordVisible}
+          value={password}
+          onChangeText={setPassword}
+          style={styles.input}
+        />
+        <TouchableOpacity onPress={() => setIsPasswordVisible(!isPasswordVisible)}>
+          <Ionicons
+            name={isPasswordVisible ? 'eye-off' : 'eye'}
+            size={20}
+            color="#5b00ff"
+            style={styles.iconRight}
+          />
+        </TouchableOpacity>
+      </View>
+
+      {error && <Text style={styles.errorText}>{error}</Text>}
+
       {loading ? (
-        <ActivityIndicator animating={true} style={styles.button} />
+        <ActivityIndicator color="#5b00ff" style={styles.button} />
       ) : (
-        <Button
-          mode="contained"
+        <TouchableOpacity
           onPress={handleLogin}
           style={styles.button}
-          labelStyle={styles.buttonLabel}
-          icon="login"
-          disabled={loading || !email || !password}
         >
-          Login
-        </Button>
+          <Text style={styles.buttonText}>Login</Text>
+        </TouchableOpacity>
       )}
+
       <View style={styles.footer}>
         <Text>Don't have an account? </Text>
-        <Button onPress={() => navigation.navigate('Register')} disabled={loading} labelStyle={styles.linkButton}>
-          Sign Up
-        </Button>
+        <TouchableOpacity onPress={() => navigation.navigate('Register')} disabled={loading}>
+          <Text style={styles.link}>Sign Up</Text>
+        </TouchableOpacity>
       </View>
     </AuthLayout>
   );
 };
 
 const styles = StyleSheet.create({
-  input: {
+  inputWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#f4f4f4',
+    paddingHorizontal: 12,
+    borderRadius: 8,
     marginBottom: 16,
-    backgroundColor: 'transparent',
+  },
+  input: {
+    flex: 1,
+    paddingVertical: 12,
+    paddingHorizontal: 8,
+    fontSize: 16,
+    color: '#333',
+  },
+  icon: {
+    marginRight: 8,
+  },
+  iconRight: {
+    padding: 4,
+  },
+  errorText: {
+    color: '#d9534f',
+    textAlign: 'center',
+    marginBottom: 8,
   },
   button: {
+    backgroundColor: '#5b00ff',
+    paddingVertical: 12,
+    borderRadius: 8,
     marginTop: 10,
-    paddingVertical: 8,
-    borderRadius: 30,
   },
-  buttonLabel: {
-    fontSize: 16,
+  buttonText: {
+    color: '#fff',
     fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: 16,
   },
   footer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
     marginTop: 20,
   },
-  linkButton: {
+  link: {
+    color: '#5b00ff',
     fontWeight: 'bold',
-  },
-  errorText: {
-    textAlign: 'center',
-    marginBottom: 8,
   },
 });
 
