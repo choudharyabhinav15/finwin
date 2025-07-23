@@ -1,23 +1,25 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import CircularProgress from 'react-native-circular-progress-indicator';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   index: number;
 };
 
 const FinancialIndexBar = ({ index = 5 }: Props) => {
+  const { t } = useTranslation();
   const getStatus = (value: number) => {
-    if (value <= 3) return { text: 'Needs Improvement', color: '#d9534f' };
-    if (value <= 6) return { text: 'Average', color: '#f0ad4e' };
-    return { text: 'Healthy', color: '#5cb85c' };
+    if (value <= 3) return { text: t('Needs Improvement'), color: '#d9534f' };
+    if (value <= 6) return { text: t('Average'), color: '#f0ad4e' };
+    return { text: t('Healthy'), color: '#5cb85c' };
   };
 
   const { text: statusText, color } = getStatus(index);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Your Financial Health</Text>
+      <Text style={styles.title}>{t('Your Financial Health')}</Text>
       <CircularProgress
         value={index}
         maxValue={9}
@@ -28,7 +30,7 @@ const FinancialIndexBar = ({ index = 5 }: Props) => {
         activeStrokeColor={color}
         inActiveStrokeColor="#e0e0e0"
         valueSuffix=""
-        title="Score"
+        title={t('Score')}
         titleColor="#333"
         titleStyle={{ fontWeight: 'bold' }}
       />

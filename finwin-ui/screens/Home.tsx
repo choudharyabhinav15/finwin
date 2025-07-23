@@ -4,46 +4,42 @@ import FinancialIndexGauge from '../components/FinancialIndexGauge';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { RootTabNavigationProp } from '../types/navigation';
+import { useTranslation } from 'react-i18next';
 
 const financialHealthIndex = 7;
 
 const Home = () => {
   const navigation = useNavigation<RootTabNavigationProp>();
+  const { t } = useTranslation();
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-
       <FinancialIndexGauge index={financialHealthIndex} />
-
       <View style={styles.card}>
-        <Text style={styles.title}>Welcome to Your Dashboard</Text>
+        <Text style={styles.title}>{t('Welcome to Your Dashboard')}</Text>
         <Text style={styles.body}>
-          Track your financial health, manage expenses, and stay informed.
+          {t('Track your financial health, manage expenses, and stay informed.')}
         </Text>
       </View>
-
       <TouchableOpacity
         style={styles.addGoalButton}
         onPress={() => navigation.navigate('AddGoals')}
       >
         <Ionicons name="add-circle-outline" size={20} color="#fff" style={{ marginRight: 6 }} />
-        <Text style={styles.addGoalButtonText}>Add a New Goal</Text>
+        <Text style={styles.addGoalButtonText}>{t('Add a New Goal')}</Text>
       </TouchableOpacity>
-
       <View style={styles.actions}>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SmartGoals')}>
           <Ionicons name="wallet-outline" size={20} color="#fff" style={styles.icon} />
-          <Text style={styles.buttonText}>Track Expenses</Text>
+          <Text style={styles.buttonText}>{t('Track Expenses')}</Text>
         </TouchableOpacity>
-
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SmartGoals')}>
           <Ionicons name="bar-chart-outline" size={20} color="#fff" style={styles.icon} />
-          <Text style={styles.buttonText}>View Insights</Text>
+          <Text style={styles.buttonText}>{t('View Insights')}</Text>
         </TouchableOpacity>
-
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Settings')}>
           <Ionicons name="settings-outline" size={20} color="#fff" style={styles.icon} />
-          <Text style={styles.buttonText}>Settings</Text>
+          <Text style={styles.buttonText}>{t('Settings')}</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>

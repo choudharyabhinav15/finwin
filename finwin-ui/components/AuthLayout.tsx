@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView, Image, Text } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 type AuthLayoutProps = {
   children: React.ReactNode;
@@ -7,12 +8,13 @@ type AuthLayoutProps = {
 };
 
 const AuthLayout = ({ children, title }: AuthLayoutProps) => {
+  const { t } = useTranslation();
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContent}>
       <View style={styles.header}>
         <Image source={require('../assets/adaptive-icon.png')} style={styles.logo} />
         <Text style={styles.title}>FinWin</Text>
-        <Text style={styles.subtitle}>{title}</Text>
+        <Text style={styles.subtitle}>{t(title)}</Text>
       </View>
       <View style={styles.formContainer}>{children}</View>
     </ScrollView>

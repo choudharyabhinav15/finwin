@@ -12,23 +12,25 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '../lib/supabase';
+import { useTranslation } from 'react-i18next';
 
 const AddGoals = () => {
   const [goal, setGoal] = useState('');
   const [amount, setAmount] = useState('');
   const [timeline, setTimeline] = useState('');
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const { t } = useTranslation();
 
   const handleSubmit = async () => {
     if (!goal || !amount || !timeline) {
-      return alert('Please fill in all fields');
+      return alert(t('Please fill in all fields'));
     }
 
     const { data: user } = await supabase.auth.getUser();
     const userId = user?.user?.id;
 
     if (!userId) {
-      return alert('You must be logged in to save goals.');
+      return alert(t('You must be logged in to save goals.'));
     }
 
     const { error } = await supabase.from('financial_goals').insert([
@@ -42,7 +44,7 @@ const AddGoals = () => {
 
     if (error) {
       console.error('Insert error:', error.message);
-      return alert('Error saving goal. Please try again.');
+      return alert(t('Error saving goal. Please try again.'));
     }
 
     setShowSuccessModal(true);
@@ -57,12 +59,12 @@ const AddGoals = () => {
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         style={{ flex: 1 }}
       >
-        <Text style={styles.title}>Add Financial Goal</Text>
+        <Text style={styles.title}>{t('Add Financial Goal')}</Text>
 
         <View style={styles.inputGroup}>
           <Ionicons name="trophy-outline" size={20} color="#5b00ff" style={styles.icon} />
           <TextInput
-            placeholder="Goal Title"
+            placeholder={t('Goal Title')}
             placeholderTextColor="#888"
             style={styles.input}
             value={goal}
@@ -73,7 +75,7 @@ const AddGoals = () => {
         <View style={styles.inputGroup}>
           <Ionicons name="cash-outline" size={20} color="#5b00ff" style={styles.icon} />
           <TextInput
-            placeholder="Target Amount (e.g., 100000)"
+            placeholder={t('Target Amount (e.g., 100000)')}
             placeholderTextColor="#888"
             style={styles.input}
             keyboardType="numeric"
@@ -85,7 +87,7 @@ const AddGoals = () => {
         <View style={styles.inputGroup}>
           <Ionicons name="calendar-outline" size={20} color="#5b00ff" style={styles.icon} />
           <TextInput
-            placeholder="Timeline (e.g., Dec 2025)"
+            placeholder={t('Timeline (e.g., Dec 2025)')}
             placeholderTextColor="#888"
             style={styles.input}
             value={timeline}
@@ -95,7 +97,7 @@ const AddGoals = () => {
 
         <TouchableOpacity style={styles.button} onPress={handleSubmit}>
           <Ionicons name="add-circle-outline" size={20} color="white" style={styles.buttonIcon} />
-          <Text style={styles.buttonText}>Save Goal</Text>
+          <Text style={styles.buttonText}>{t('Save Goal')}</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
 
@@ -108,13 +110,13 @@ const AddGoals = () => {
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
             <Ionicons name="checkmark-circle" size={48} color="#5b00ff" />
-            <Text style={styles.modalTitle}>Goal Added!</Text>
-            <Text style={styles.modalText}>🎯 {goal} - ₹{amount} by {timeline}</Text>
+            <Text style={styles.modalTitle}>{t('Goal Added!')}</Text>
+            <Text style={styles.modalText}>🎯 {goal} - ₹{amount} {t('by')} {timeline}</Text>
             <TouchableOpacity
               onPress={() => setShowSuccessModal(false)}
               style={styles.modalButton}
             >
-              <Text style={styles.modalButtonText}>OK</Text>
+              <Text style={styles.modalButtonText}>{t('OK')}</Text>
             </TouchableOpacity>
           </View>
         </View>

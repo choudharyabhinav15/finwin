@@ -4,12 +4,14 @@ import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { supabase } from '../lib/supabase';
 import AuthLayout from '../components/AuthLayout';
 import { LoginScreenNavigationProp } from '../types/navigation';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   navigation: LoginScreenNavigationProp;
 };
 
 const LoginScreen = ({ navigation }: Props) => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -17,39 +19,38 @@ const LoginScreen = ({ navigation }: Props) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const handleLogin = async () => {
-  setError(null);
+    setError(null);
 
-  const trimmedEmail = email.trim();
+    const trimmedEmail = email.trim();
 
-  if (!trimmedEmail || !password) {
-    setError("Please enter both email and password.");
-    return;
-  }
-
-  setLoading(true);
-  const { error: signInError } = await supabase.auth.signInWithPassword({
-    email: trimmedEmail,
-    password,
-  });
-
-  if (signInError) {
-    if (signInError.message.toLowerCase().includes("missing email or phone")) {
-      setError("Email is required to login.");
-    } else {
-      setError(signInError.message);
+    if (!trimmedEmail || !password) {
+      setError(t('Please enter both email and password.'));
+      return;
     }
-  }
 
-  setLoading(false);
-};
+    setLoading(true);
+    const { error: signInError } = await supabase.auth.signInWithPassword({
+      email: trimmedEmail,
+      password,
+    });
 
+    if (signInError) {
+      if (signInError.message.toLowerCase().includes("missing email or phone")) {
+        setError(t('Email is required to login.'));
+      } else {
+        setError(signInError.message);
+      }
+    }
+
+    setLoading(false);
+  };
 
   return (
-    <AuthLayout title="Login to Your Account">
+    <AuthLayout title={t('Login to Your Account')}>
       <View style={styles.inputWrapper}>
         <MaterialIcons name="email" size={20} color="#5b00ff" style={styles.icon} />
         <RNTextInput
-          placeholder="Email"
+          placeholder={t('Email')}
           placeholderTextColor="#888"
           value={email}
           onChangeText={setEmail}
@@ -62,7 +63,7 @@ const LoginScreen = ({ navigation }: Props) => {
       <View style={styles.inputWrapper}>
         <MaterialIcons name="lock-outline" size={20} color="#5b00ff" style={styles.icon} />
         <RNTextInput
-          placeholder="Password"
+          placeholder={t('Password')}
           placeholderTextColor="#888"
           secureTextEntry={!isPasswordVisible}
           value={password}
@@ -88,14 +89,14 @@ const LoginScreen = ({ navigation }: Props) => {
           onPress={handleLogin}
           style={styles.button}
         >
-          <Text style={styles.buttonText}>Login</Text>
+          <Text style={styles.buttonText}>{t('Login')}</Text>
         </TouchableOpacity>
       )}
 
       <View style={styles.footer}>
-        <Text>Don't have an account? </Text>
+        <Text>{t("Don't have an account?")} </Text>
         <TouchableOpacity onPress={() => navigation.navigate('Register')} disabled={loading}>
-          <Text style={styles.link}>Sign Up</Text>
+          <Text style={styles.link}>{t('Sign Up')}</Text>
         </TouchableOpacity>
       </View>
     </AuthLayout>

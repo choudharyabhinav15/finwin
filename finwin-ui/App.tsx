@@ -19,7 +19,8 @@ import SmartGoals from './screens/SmartGoals';
 import RegisterScreen from './screens/RegisterScreen';
 import { Ionicons } from '@expo/vector-icons';
 import AddGoals from './screens/AddGoals';
-
+import './lib/i18n';
+import { useTranslation } from 'react-i18next';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -29,75 +30,77 @@ type FooterTabsProps = {
   navigation: DrawerNavigationProp<any>;
 };
 
-const FooterTabs = ({ navigation }: FooterTabsProps) => (
-  <Tab.Navigator
-    screenOptions={{
-      headerLeft: () => (
-        <TouchableOpacity
-          style={{ marginLeft: 15 }}
-          onPress={() => navigation.toggleDrawer()}
-        >
-          <Ionicons name="menu" size={24} color="black" />
-        </TouchableOpacity>
-      ),
-      headerShown: true,
-      tabBarStyle: {
-        backgroundColor: '#fff',
-        borderTopLeftRadius: 20,
-        borderTopRightRadius: 20,
-        elevation: 5,
-      },
-      tabBarActiveTintColor: '#5b00ff',
-      tabBarInactiveTintColor: 'gray',
-    }}
-  >
-    <Tab.Screen
-      name="Home"
-      component={Home}
-      options={{
-        headerShown: true,
-        headerTitle: 'Home',
-        tabBarIcon: ({ color, size }) => (
-          <Ionicons name="home-outline" color={color} size={size} />
+const FooterTabs = ({ navigation }: FooterTabsProps) => {
+  const { t } = useTranslation();
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        headerLeft: () => (
+          <TouchableOpacity
+            style={{ marginLeft: 15 }}
+            onPress={() => navigation.toggleDrawer()}
+          >
+            <Ionicons name="menu" size={24} color="black" />
+          </TouchableOpacity>
         ),
-      }}
-    />
-    <Tab.Screen
-      name="AddGoals"
-      component={AddGoals}
-      options={{
         headerShown: true,
-        headerTitle: 'Add a New Goal',
-        tabBarIcon: ({ color, size }) => (
-          <Ionicons name="add-circle-outline" color={color} size={size} />
-        ),
+        tabBarStyle: {
+          backgroundColor: '#fff',
+          borderTopLeftRadius: 20,
+          borderTopRightRadius: 20,
+          elevation: 5,
+        },
+        tabBarActiveTintColor: '#5b00ff',
+        tabBarInactiveTintColor: 'gray',
       }}
-    />
-
-    <Tab.Screen
-      name="SmartGoals"
-      component={SmartGoals}
-      options={{
-        headerShown: true,
-        headerTitle: 'Goals',
-        tabBarIcon: ({ color, size }) => (
-          <Ionicons name="trophy-outline" color={color} size={size} />
-        ),
-      }}
-    />
-    <Tab.Screen
-      name="Settings"
-      component={Settings}
-      options={{
-        headerShown: true,
-        headerTitle: 'Settings',
-        tabBarIcon: ({ color, size }) => (
-          <Ionicons name="settings-outline" color={color} size={size} />
-        ),
-      }}
-    />
-  </Tab.Navigator>
-);
+    >
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          headerShown: true,
+          headerTitle: t('Home'),
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home-outline" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="AddGoals"
+        component={AddGoals}
+        options={{
+          headerShown: true,
+          headerTitle: t('Add a New Goal'),
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="add-circle-outline" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="SmartGoals"
+        component={SmartGoals}
+        options={{
+          headerShown: true,
+          headerTitle: t('Goals'),
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="trophy-outline" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Settings"
+        component={Settings}
+        options={{
+          headerShown: true,
+          headerTitle: t('Settings'),
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="settings-outline" color={color} size={size} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
+};
 
 interface CustomDrawerProps extends DrawerContentComponentProps {
   session: Session | null;
@@ -106,6 +109,7 @@ interface CustomDrawerProps extends DrawerContentComponentProps {
 
 const CustomDrawerContent = (props: CustomDrawerProps) => {
   const { session, onLogout } = props;
+  const { t } = useTranslation();
   return (
     <DrawerContentScrollView {...props}>
       <View style={styles.profileSection}>
@@ -113,16 +117,16 @@ const CustomDrawerContent = (props: CustomDrawerProps) => {
           <Ionicons name="log-out-outline" size={24} color="gray" />
         </TouchableOpacity>
         <Ionicons name="person-circle-outline" size={60} color="#5b00ff" />
-        <Text style={styles.name}>{session?.user?.user_metadata?.name || 'FinWin User'}</Text>
+        <Text style={styles.name}>{session?.user?.user_metadata?.name || t('FinWin User')}</Text>
         <Text style={styles.email}>{session?.user?.email}</Text>
       </View>
       <DrawerItem
-        label="Home"
+        label={t('Home')}
         icon={({ color, size }) => <Ionicons name="home-outline" size={size} color={color} />}
         onPress={() => props.navigation.navigate('Main', { screen: 'Home' })}
       />
       <DrawerItem
-        label="Smart Goals"
+        label={t('Smart Goals')}
         icon={({ color, size }) => <Ionicons name="trophy-outline" size={size} color={color} />}
         onPress={() => props.navigation.navigate('Main', { screen: 'SmartGoals' })}
       />

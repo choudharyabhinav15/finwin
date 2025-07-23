@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { supabase } from '../lib/supabase';
 import { RootTabParamList } from '../types/navigation';
+import { useTranslation } from 'react-i18next';
 
 type Goal = {
   id: string;
@@ -12,6 +13,7 @@ type Goal = {
 };
 
 const SmartGoals = () => {
+  const { t } = useTranslation();
   const [goals, setGoals] = useState<Goal[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -26,7 +28,7 @@ const SmartGoals = () => {
     } = await supabase.auth.getUser();
 
     if (!user) {
-      setError('User not logged in');
+      setError(t('User not logged in'));
       setLoading(false);
       return;
     }
@@ -63,7 +65,7 @@ const SmartGoals = () => {
       <View style={styles.center}>
         <Text style={styles.errorText}>⚠️ {error}</Text>
         <TouchableOpacity onPress={fetchGoals} style={styles.retryButton}>
-          <Text style={styles.retryButtonText}>Retry</Text>
+          <Text style={styles.retryButtonText}>{t('Retry')}</Text>
         </TouchableOpacity>
       </View>
     );
@@ -71,11 +73,11 @@ const SmartGoals = () => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.heading}>🎯 Financial Smart Goals</Text>
+      <Text style={styles.heading}>🎯 {t('Financial Smart Goals')}</Text>
 
       {goals.length === 0 ? (
         <Text style={{ color: '#555', textAlign: 'center', marginTop: 20 }}>
-          No goals found. Tap below to add one.
+          {t('No goals found. Tap below to add one.')}
         </Text>
       ) : (
         goals.map((goal) => (
@@ -91,7 +93,7 @@ const SmartGoals = () => {
         onPress={() => navigation.navigate('AddGoals')}
       >
         <Ionicons name="add-circle-outline" size={20} color="white" style={{ marginRight: 6 }} />
-        <Text style={styles.addButtonText}>Add New Goal</Text>
+        <Text style={styles.addButtonText}>{t('Add New Goal')}</Text>
       </TouchableOpacity>
     </ScrollView>
   );

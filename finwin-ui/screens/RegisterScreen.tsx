@@ -12,12 +12,14 @@ import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { supabase } from '../lib/supabase';
 import AuthLayout from '../components/AuthLayout';
 import { RegisterScreenNavigationProp } from '../types/navigation';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   navigation: RegisterScreenNavigationProp;
 };
 
 const RegisterScreen = ({ navigation }: Props) => {
+  const { t } = useTranslation();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -37,13 +39,13 @@ const RegisterScreen = ({ navigation }: Props) => {
     const newErrors: typeof errors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!name.trim()) newErrors.name = 'Name is required.';
-    if (!email.trim()) newErrors.email = 'Email is required.';
-    else if (!emailRegex.test(email.trim())) newErrors.email = 'Invalid email format.';
-    if (!password) newErrors.password = 'Password is required.';
-    else if (password.length < 6) newErrors.password = 'Min 6 characters required.';
-    if (!confirmPassword) newErrors.confirmPassword = 'Please confirm password.';
-    else if (password !== confirmPassword) newErrors.confirmPassword = 'Passwords do not match.';
+    if (!name.trim()) newErrors.name = t('Name is required.');
+    if (!email.trim()) newErrors.email = t('Email is required.');
+    else if (!emailRegex.test(email.trim())) newErrors.email = t('Invalid email format.');
+    if (!password) newErrors.password = t('Password is required.');
+    else if (password.length < 6) newErrors.password = t('Min 6 characters required.');
+    if (!confirmPassword) newErrors.confirmPassword = t('Please confirm password.');
+    else if (password !== confirmPassword) newErrors.confirmPassword = t('Passwords do not match.');
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -65,7 +67,7 @@ const RegisterScreen = ({ navigation }: Props) => {
     if (error) {
       setErrors({ form: error.message });
     } else if (!data.session) {
-      Alert.alert('Success!', 'Please check your email for a verification link.');
+      Alert.alert(t('Success!'), t('Please check your email for a verification link.'));
       navigation.navigate('Login');
     }
 
@@ -73,11 +75,11 @@ const RegisterScreen = ({ navigation }: Props) => {
   };
 
   return (
-    <AuthLayout title="Create Account">
+    <AuthLayout title={t('Create Account')}>
       <View style={styles.inputWrapper}>
         <MaterialIcons name="person-outline" size={20} color="#5b00ff" style={styles.icon} />
         <RNTextInput
-          placeholder="Name"
+          placeholder={t('Name')}
           placeholderTextColor="#888"
           value={name}
           onChangeText={(text) => {
@@ -93,7 +95,7 @@ const RegisterScreen = ({ navigation }: Props) => {
       <View style={styles.inputWrapper}>
         <MaterialIcons name="email" size={20} color="#5b00ff" style={styles.icon} />
         <RNTextInput
-          placeholder="Email"
+          placeholder={t('Email')}
           placeholderTextColor="#888"
           value={email}
           onChangeText={(text) => {
@@ -111,7 +113,7 @@ const RegisterScreen = ({ navigation }: Props) => {
       <View style={styles.inputWrapper}>
         <MaterialIcons name="lock-outline" size={20} color="#5b00ff" style={styles.icon} />
         <RNTextInput
-          placeholder="Password"
+          placeholder={t('Password')}
           placeholderTextColor="#888"
           value={password}
           onChangeText={(text) => {
@@ -136,7 +138,7 @@ const RegisterScreen = ({ navigation }: Props) => {
       <View style={styles.inputWrapper}>
         <MaterialIcons name="lock" size={20} color="#5b00ff" style={styles.icon} />
         <RNTextInput
-          placeholder="Confirm Password"
+          placeholder={t('Confirm Password')}
           placeholderTextColor="#888"
           value={confirmPassword}
           onChangeText={(text) => {
@@ -169,15 +171,15 @@ const RegisterScreen = ({ navigation }: Props) => {
           onPress={signUpWithEmail}
           disabled={loading}
         >
-          <Text style={styles.buttonText}>Register</Text>
+          <Text style={styles.buttonText}>{t('Register')}</Text>
         </TouchableOpacity>
       )}
 
       {/* Footer */}
       <View style={styles.footer}>
-        <Text>Already have an account? </Text>
+        <Text>{t('Already have an account?')} </Text>
         <TouchableOpacity onPress={() => navigation.navigate('Login')} disabled={loading}>
-          <Text style={styles.link}>Sign In</Text>
+          <Text style={styles.link}>{t('Sign In')}</Text>
         </TouchableOpacity>
       </View>
     </AuthLayout>
