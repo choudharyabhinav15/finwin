@@ -20,6 +20,7 @@ import RegisterScreen from './screens/RegisterScreen';
 import { Ionicons } from '@expo/vector-icons';
 import AddGoals from './screens/AddGoals';
 import './lib/i18n';
+import FinanceLog from './components/FinanceLog';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -107,6 +108,17 @@ const FooterTabs = ({ navigation }: FooterTabsProps) => (
       }}
     />
     <Tab.Screen
+      name="FinanceLog"
+      component={FinanceLog}
+      options={{
+        headerShown: true,
+        headerTitle: 'Finance Log',
+        tabBarIcon: ({ color, size }) => (
+          <Ionicons name="cash-outline" color={color} size={size} />
+        ),
+      }}
+    />
+    <Tab.Screen
       name="Settings"
       component={Settings}
       options={{
@@ -146,6 +158,11 @@ const CustomDrawerContent = (props: CustomDrawerProps) => {
         label="Smart Goals"
         icon={({ color, size }) => <Ionicons name="trophy-outline" size={size} color={color} />}
         onPress={() => props.navigation.navigate('Main', { screen: 'SmartGoals' })}
+      />
+      <DrawerItem
+        label="Finance Log"
+        icon={({ color, size }) => <Ionicons name="cash-outline" size={size} color={color} />}
+        onPress={() => props.navigation.navigate('Main', { screen: 'FinanceLog' })}
       />
     </DrawerContentScrollView>
   );

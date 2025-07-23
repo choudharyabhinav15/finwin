@@ -1,19 +1,312 @@
 [
   {
     "id": "1",
-    "name": "John Doe",
-    "title": "How to Save Money",
-    "content": "Saving money is important for your future. Start by tracking your expenses and setting a budget.",
-    "eligibility": "All users",
-    "contact": "john@example.com"
+    "name": "Government of India",
+    "title": "Pradhan Mantri Awas Yojana (PMAY)",
+    "content": "Pradhan Mantri Awas Yojana (PMAY) is a flagship initiative by the Government of India, launched in 2015, with the vision of providing affordable housing to the urban and rural poor. The scheme aims to achieve the goal of 'Housing for All' by 2022. PMAY is divided into two parts: PMAY-Urban and PMAY-Gramin, targeting both city dwellers and rural populations. The scheme provides financial assistance, interest subsidies, and support for the construction, purchase, or improvement of homes. Beneficiaries are selected based on socio-economic criteria, and the scheme covers Economically Weaker Sections (EWS), Low Income Groups (LIG), Middle Income Groups (MIG), and certain other categories. The government also encourages the use of eco-friendly and sustainable construction technologies under PMAY. The scheme has helped millions of families realize their dream of owning a home, improving their quality of life, and contributing to the nation’s development. The application process is simple and can be done online or through Common Service Centers (CSCs). The government regularly updates the list of beneficiaries and ensures transparency in the allocation of funds. PMAY is a transformative step towards inclusive growth and social security, making homeownership accessible to all segments of society, especially the underprivileged. The scheme also promotes women empowerment by mandating the registration of houses in the name of female members or jointly with males. This not only provides security to women but also encourages gender equality. The government has also introduced various technological interventions to monitor the progress of the scheme and ensure timely delivery of benefits. Overall, PMAY is a comprehensive initiative that addresses the housing needs of the poor and aims to create a more equitable society.",
+    "eligibility": "Low-income groups, Economically Weaker Sections (EWS), Lower Income Group (LIG), Middle Income Group (MIG), and certain categories in urban and rural areas.",
+    "contact": "Visit https://pmaymis.gov.in or contact your nearest bank or Common Service Center (CSC) for more details.",
+    "language": "en",
+    "category": "Saving"
   },
   {
-    "id": "2",
-    "name": "Jane Smith",
-    "title": "Investing Basics",
-    "content": "Investing can help you grow your wealth. Learn about stocks, bonds, and mutual funds.",
-    "eligibility": "18+ years",
-    "contact": "jane@example.com"
+    "id": "1",
+    "name": "भारत सरकार",
+    "title": "प्रधान मंत्री आवास योजना (पीएमएवाई)",
+    "content": "प्रधान मंत्री आवास योजना (पीएमएवाई) भारत सरकार की एक प्रमुख पहल है, जिसे 2015 में शुरू किया गया था, जिसका उद्देश्य शहरी और ग्रामीण गरीबों को किफायती आवास उपलब्ध कराना है। इस योजना का लक्ष्य 2022 तक 'सभी के लिए आवास' प्राप्त करना है। पीएमएवाई को दो भागों में विभाजित किया गया है: पीएमएवाई-शहरी और पीएमएवाई-ग्रामीण, जो शहरों और ग्रामीण क्षेत्रों दोनों के लोगों को लक्षित करता है। इस योजना के तहत वित्तीय सहायता, ब्याज सब्सिडी, और घर के निर्माण, खरीद या सुधार के लिए सहायता प्रदान की जाती है। लाभार्थियों का चयन सामाजिक-आर्थिक मानदंडों के आधार पर किया जाता है, और यह योजना आर्थिक रूप से कमजोर वर्ग (EWS), निम्न आय वर्ग (LIG), मध्यम आय वर्ग (MIG) और कुछ अन्य श्रेणियों को कवर करती है। सरकार पीएमएवाई के तहत पर्यावरण के अनुकूल और टिकाऊ निर्माण तकनीकों को भी प्रोत्साहित करती है। इस योजना ने लाखों परिवारों को अपना घर पाने का सपना साकार करने में मदद की है, जिससे उनकी जीवन गुणवत्ता में सुधार हुआ है और देश के विकास में योगदान मिला है। आवेदन प्रक्रिया सरल है और इसे ऑनलाइन या कॉमन सर्विस सेंटर (CSC) के माध्यम से किया जा सकता है। सरकार लाभार्थियों की सूची को नियमित रूप से अपडेट करती है और धन के आवंटन में पारदर्शिता सुनिश्चित करती है। पीएमएवाई समावेशी विकास और सामाजिक सुरक्षा की दिशा में एक परिवर्तनकारी कदम है, जो समाज के सभी वर्गों, विशेष रूप से वंचितों के लिए घर का स्वामित्व सुलभ बनाता है। इस योजना के तहत महिलाओं को भी सशक्त किया जाता है, क्योंकि घर का पंजीकरण महिला सदस्य के नाम पर या संयुक्त रूप से किया जाता है। इससे महिलाओं को सुरक्षा मिलती है और लैंगिक समानता को बढ़ावा मिलता है। सरकार ने योजना की प्रगति की निगरानी और लाभों की समय पर डिलीवरी सुनिश्चित करने के लिए विभिन्न तकनीकी हस्तक्षेप भी किए हैं। कुल मिलाकर, पीएमएवाई एक व्यापक पहल है जो गरीबों की आवास आवश्यकताओं को पूरा करती है और एक अधिक समान समाज के निर्माण का प्रयास करती है।",
+    "eligibility": "निम्न आय वर्ग, आर्थिक रूप से कमजोर वर्ग (EWS), निम्न आय वर्ग (LIG), मध्यम आय वर्ग (MIG) और शहरी व ग्रामीण क्षेत्रों की कुछ श्रेणियाँ।",
+    "contact": "अधिक जानकारी के लिए https://pmaymis.gov.in पर जाएँ या अपने नजदीकी बैंक या कॉमन सर्विस सेंटर (CSC) से संपर्क करें।",
+    "language": "hi",
+    "category": "Saving"
+  },
+  {
+    "id": "1",
+    "name": "ಭಾರತ ಸರ್ಕಾರ",
+    "title": "ಪ್ರಧಾನಮಂತ್ರಿ ಆವಾಸ್ ಯೋಜನೆ (PMAY)",
+    "content": "ಪ್ರಧಾನಮಂತ್ರಿ ಆವಾಸ್ ಯೋಜನೆ (PMAY) ಭಾರತ ಸರ್ಕಾರದ ಪ್ರಮುಖ ಗೃಹ ಯೋಜನೆಯಾಗಿದ್ದು, 2015ರಲ್ಲಿ ಪ್ರಾರಂಭಗೊಂಡಿತು. ಇದರ ಮುಖ್ಯ ಉದ್ದೇಶ ನಗರ ಮತ್ತು ಗ್ರಾಮೀಣ ಬಡವರಿಗೆ ಅಗ್ಗದ ಮನೆಗಳನ್ನು ಒದಗಿಸುವುದು. 2022ರೊಳಗೆ 'ಎಲ್ಲರಿಗೂ ಮನೆ' ಗುರಿಯನ್ನು ಸಾಧಿಸುವುದು ಯೋಜನೆಯ ಮಹತ್ವದ ಭಾಗವಾಗಿದೆ. PMAY ಅನ್ನು ನಗರ ಮತ್ತು ಗ್ರಾಮೀಣ ಭಾಗಗಳಿಗಾಗಿ ವಿಭಜಿಸಲಾಗಿದೆ: PMAY-Urban ಮತ್ತು PMAY-Gramin. ಯೋಜನೆಯಡಿ ಹಣಕಾಸು ಸಹಾಯ, ಬಡ್ಡಿದರ ಸಬ್ಸಿಡಿ, ಮತ್ತು ಮನೆ ನಿರ್ಮಾಣ, ಖರೀದಿ ಅಥವಾ ಸುಧಾರಣೆಗೆ ಬೆಂಬಲ ಒದಗಿಸಲಾಗುತ್ತದೆ. ಲಾಭಾರ್ಥಿಗಳನ್ನು ಸಾಮಾಜಿಕ-ಆರ್ಥಿಕ ಮಾನದಂಡಗಳ ಆಧಾರದ ಮೇಲೆ ಆಯ್ಕೆ ಮಾಡಲಾಗುತ್ತದೆ. ಯೋಜನೆ ಆರ್ಥಿಕವಾಗಿ ದುರ್ಬಲ ವರ್ಗ (EWS), ಕಡಿಮೆ ಆದಾಯದ ವರ್ಗ (LIG), ಮಧ್ಯಮ ಆದಾಯದ ವರ್ಗ (MIG) ಮತ್ತು ಇತರ ಕೆಲವು ವರ್ಗಗಳನ್ನು ಒಳಗೊಂಡಿದೆ. ಸರ್ಕಾರ ಪರಿಸರ ಸ್ನೇಹಿ ಮತ್ತು ದೀರ್ಘಕಾಲಿಕ ನಿರ್ಮಾಣ ತಂತ್ರಜ್ಞಾನಗಳನ್ನು ಪ್ರೋತ್ಸಾಹಿಸುತ್ತದೆ. ಈ ಯೋಜನೆಯು ಲಕ್ಷಾಂತರ ಕುಟುಂಬಗಳಿಗೆ ಮನೆ ಹೊಂದುವ ಕನಸು ನನಸಾಗಿಸಲು ಸಹಾಯ ಮಾಡಿದೆ, ಅವರ ಜೀವನಮಟ್ಟವನ್ನು ಸುಧಾರಿಸಿದೆ ಮತ್ತು ರಾಷ್ಟ್ರದ ಅಭಿವೃದ್ಧಿಗೆ ಕೊಡುಗೆ ನೀಡಿದೆ. ಅರ್ಜಿ ಪ್ರಕ್ರಿಯೆ ಸರಳವಾಗಿದೆ ಮತ್ತು ಆನ್‌ಲೈನ್ ಅಥವಾ ಕಾಮನ್ ಸರ್ವಿಸ್ ಸೆಂಟರ್ (CSC) ಮೂಲಕ ಸಲ್ಲಿಸಬಹುದು. ಸರ್ಕಾರ ಲಾಭಾರ್ಥಿಗಳ ಪಟ್ಟಿಯನ್ನು ನಿಯಮಿತವಾಗಿ ನವೀಕರಿಸುತ್ತದೆ ಮತ್ತು ನಿಧಿಗಳ ಹಂಚಿಕೆಯಲ್ಲಿ ಪಾರದರ್ಶಕತೆ ಕಾಯ್ದುಕೊಳ್ಳುತ್ತದೆ. PMAY ಸಮಾವೇಶಿತ ಬೆಳವಣಿಗೆ ಮತ್ತು ಸಾಮಾಜಿಕ ಭದ್ರತೆಗೆ ಮಹತ್ವದ ಹೆಜ್ಜೆಯಾಗಿದೆ, ವಿಶೇಷವಾಗಿ ಹಿಂದುಳಿದ ವರ್ಗಗಳಿಗೆ ಮನೆ ಮಾಲೀಕತ್ವವನ್ನು ಸುಲಭಗೊಳಿಸುತ್ತದೆ. ಈ ಯೋಜನೆಯು ಮಹಿಳಾ ಸಬಲೀಕರಣಕ್ಕೂ ಸಹಾಯ ಮಾಡುತ್ತದೆ, ಏಕೆಂದರೆ ಮನೆ ನೋಂದಣಿ ಮಹಿಳಾ ಸದಸ್ಯರ ಹೆಸರಿನಲ್ಲಿ ಅಥವಾ ಸಂಯುಕ್ತವಾಗಿ ಮಾಡಲಾಗುತ್ತದೆ. ಇದರಿಂದ ಮಹಿಳೆಯರಿಗೆ ಭದ್ರತೆ ಸಿಗುತ್ತದೆ ಮತ್ತು ಲಿಂಗ ಸಮಾನತೆಯನ್ನು ಉತ್ತೇಜಿಸಲಾಗುತ್ತದೆ. ಸರ್ಕಾರ ಯೋಜನೆಯ ಪ್ರಗತಿಯನ್ನು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡಲು ಮತ್ತು ಲಾಭಗಳನ್ನು ಸಮಯಕ್ಕೆ ಸರಿಯಾಗಿ ವಿತರಿಸಲು ವಿವಿಧ ತಾಂತ್ರಿಕ ಹಸ್ತಕ್ಷೇಪಗಳನ್ನು ಪರಿಚಯಿಸಿದೆ. ಒಟ್ಟಾರೆ, PMAY ಬಡವರ ಗೃಹ ಅಗತ್ಯಗಳನ್ನು ಪೂರೈಸುವ ಸಮಗ್ರ ಯೋಜನೆಯಾಗಿದೆ ಮತ್ತು ಸಮಾನತೆಯ ಸಮಾಜ ನಿರ್ಮಾಣವನ್ನು ಉದ್ದೇಶಿಸುತ್ತದೆ.",
+    "eligibility": "ಕಡಿಮೆ ಆದಾಯದವರು, ಆರ್ಥಿಕವಾಗಿ ದುರ್ಬಲ ವರ್ಗ (EWS), ಕಡಿಮೆ ಆದಾಯದ ವರ್ಗ (LIG), ಮಧ್ಯಮ ಆದಾಯದ ವರ್ಗ (MIG) ಮತ್ತು ನಗರ ಹಾಗೂ ಗ್ರಾಮೀಣ ಪ್ರದೇಶಗಳ ಕೆಲವು ವರ್ಗಗಳು.",
+    "contact": "ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗೆ https://pmaymis.gov.in ಗೆ ಭೇಟಿ ನೀಡಿ ಅಥವಾ ನಿಮ್ಮ najdiki ಬ್ಯಾಂಕ್ ಅಥವಾ ಕಾಮನ್ ಸರ್ವಿಸ್ ಸೆಂಟರ್ (CSC) ಅನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+    "language": "kn",
+    "category": "Saving"
+  },
+  {
+    "id": "4",
+    "name": "Government of India",
+    "title": "PM Young Achievers Scholarship Award Scheme for Vibrant India (YASASVI)",
+    "content": "The PM Young Achievers Scholarship Award Scheme for Vibrant India (YASASVI) is a scholarship program by the Government of India to provide financial assistance to meritorious students from OBC, EBC, and DNT categories studying in Classes 9 and 11. The scheme aims to support talented students and promote education among underprivileged sections.",
+    "eligibility": "Students belonging to OBC, EBC, and DNT categories, studying in Class 9 or 11, and meeting the income and academic criteria as specified by the scheme.",
+    "contact": "Visit https://yet.nta.ac.in or contact your school administration for more details.",
+    "language": "en",
+    "category": "Scholarship"
+  },
+  {
+    "id": "5",
+    "name": "भारत सरकार",
+    "title": "पीएम युवा अचीवर्स छात्रवृत्ति योजना (YASASVI)",
+    "content": "पीएम युवा अचीवर्स छात्रवृत्ति योजना (YASASVI) भारत सरकार की एक योजना है, जिसका उद्देश्य ओबीसी, ईबीसी और डीएनटी वर्ग के मेधावी छात्रों को कक्षा 9 और 11 में वित्तीय सहायता प्रदान करना है। यह योजना प्रतिभाशाली छात्रों को समर्थन देने और वंचित वर्गों में शिक्षा को बढ़ावा देने के लिए शुरू की गई है।",
+    "eligibility": "ओबीसी, ईबीसी और डीएनटी वर्ग के वे छात्र जो कक्षा 9 या 11 में पढ़ रहे हैं और योजना द्वारा निर्धारित आय और शैक्षणिक मानदंडों को पूरा करते हैं।",
+    "contact": "अधिक जानकारी के लिए https://yet.nta.ac.in पर जाएँ या अपने स्कूल प्रशासन से संपर्क करें।",
+    "language": "hi",
+    "category": "Scholarship"
+  },
+  {
+    "id": "6",
+    "name": "ಭಾರತ ಸರ್ಕಾರ",
+    "title": "ಪ್ರಧಾನಮಂತ್ರಿ ಯುವ ಸಾಧಕರ ವಿದ್ಯಾರ್ಥಿವೇತನ ಯೋಜನೆ (YASASVI)",
+    "content": "ಪ್ರಧಾನಮಂತ್ರಿ ಯುವ ಸಾಧಕರ ವಿದ್ಯಾರ್ಥಿವೇತನ ಯೋಜನೆ (YASASVI) ಭಾರತ ಸರ್ಕಾರದ ಯೋಜನೆಯಾಗಿದ್ದು, OBC, EBC ಮತ್ತು DNT ವರ್ಗದ ಪ್ರತಿಭಾವಂತ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ 9ನೇ ಮತ್ತು 11ನೇ ತರಗತಿಯಲ್ಲಿ ಆರ್ಥಿಕ ಸಹಾಯವನ್ನು ಒದಗಿಸುತ್ತದೆ. ಈ ಯೋಜನೆಯು ಪ್ರತಿಭಾವಂತ ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ಬೆಂಬಲಿಸುವುದು ಮತ್ತು ಹಿಂದುಳಿದ ವರ್ಗಗಳಲ್ಲಿ ಶಿಕ್ಷಣವನ್ನು ಉತ್ತೇಜಿಸುವ ಉದ್ದೇಶವನ್ನು ಹೊಂದಿದೆ.",
+    "eligibility": "OBC, EBC ಮತ್ತು DNT ವರ್ಗದ ವಿದ್ಯಾರ್ಥಿಗಳು, 9ನೇ ಅಥವಾ 11ನೇ ತರಗತಿಯಲ್ಲಿ ಓದುತ್ತಿರುವವರು ಮತ್ತು ಯೋಜನೆಯು ನಿರ್ಧರಿಸಿದ ಆದಾಯ ಮತ್ತು ಶೈಕ್ಷಣಿಕ ಮಾನದಂಡಗಳನ್ನು ಪೂರೈಸುವವರು.",
+    "contact": "ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗೆ https://yet.nta.ac.in ಗೆ ಭೇಟಿ ನೀಡಿ ಅಥವಾ ನಿಮ್ಮ ಶಾಲಾ ಆಡಳಿತವನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+    "language": "kn",
+    "category": "Scholarship"
+  },
+  {
+    "id": "7",
+    "name": "Government of India",
+    "title": "Pradhan Mantri Jan Dhan Yojana (PMJDY)",
+    "content": "Pradhan Mantri Jan Dhan Yojana (PMJDY) is a national mission for financial inclusion to ensure access to financial services, such as banking, savings and deposit accounts, remittance, credit, insurance, and pension in an affordable manner. The scheme aims to provide every household with at least one bank account.",
+    "eligibility": "All Indian citizens, especially those without a bank account. No minimum balance required.",
+    "contact": "Visit https://pmjdy.gov.in or contact your nearest bank branch for more details.",
+    "language": "en",
+    "category": "Saving"
+  },
+  {
+    "id": "8",
+    "name": "भारत सरकार",
+    "title": "प्रधान मंत्री जन धन योजना (पीएमजेडीवाई)",
+    "content": "प्रधान मंत्री जन धन योजना (पीएमजेडीवाई) वित्तीय समावेशन के लिए एक राष्ट्रीय मिशन है, जिसका उद्देश्य सभी नागरिकों को बैंकिंग, बचत, जमा, प्रेषण, ऋण, बीमा और पेंशन जैसी वित्तीय सेवाएँ सुलभ और किफायती रूप से उपलब्ध कराना है। इस योजना के तहत हर परिवार के पास कम से कम एक बैंक खाता होना चाहिए।",
+    "eligibility": "सभी भारतीय नागरिक, विशेष रूप से जिनके पास बैंक खाता नहीं है। न्यूनतम शेष राशि की आवश्यकता नहीं।",
+    "contact": "अधिक जानकारी के लिए https://pmjdy.gov.in पर जाएँ या अपने नजदीकी बैंक शाखा से संपर्क करें।",
+    "language": "hi",
+    "category": "Saving"
+  },
+  {
+    "id": "9",
+    "name": "ಭಾರತ ಸರ್ಕಾರ",
+    "title": "ಪ್ರಧಾನಮಂತ್ರಿ ಜನಧನ್ ಯೋಜನೆ (PMJDY)",
+    "content": "ಪ್ರಧಾನಮಂತ್ರಿ ಜನಧನ್ ಯೋಜನೆ (PMJDY) ಹಣಕಾಸು ಒಳಗೊಳ್ಳುವಿಕೆಗೆ ರಾಷ್ಟ್ರೀಯ ಮಿಷನ್ ಆಗಿದ್ದು, ಬ್ಯಾಂಕಿಂಗ್, ಉಳಿತಾಯ ಮತ್ತು ಠೇವಣಿ ಖಾತೆಗಳು, ಹಣ ವರ್ಗಾವಣೆ, ಸಾಲ, ವಿಮೆ ಮತ್ತು ನಿವೃತ್ತಿ ವೇತನವನ್ನು ಸುಲಭವಾಗಿ ಮತ್ತು ಕಡಿಮೆ ವೆಚ್ಚದಲ್ಲಿ ಒದಗಿಸುವ ಗುರಿಯನ್ನು ಹೊಂದಿದೆ. ಈ ಯೋಜನೆಯು ಪ್ರತಿಯೊಂದು ಕುಟುಂಬಕ್ಕೂ ಕನಿಷ್ಠ ಒಂದು ಬ್ಯಾಂಕ್ ಖಾತೆ ಇರಬೇಕೆಂದು ಉದ್ದೇಶಿಸುತ್ತದೆ.",
+    "eligibility": "ಎಲ್ಲಾ ಭಾರತೀಯ ನಾಗರಿಕರು, ವಿಶೇಷವಾಗಿ ಬ್ಯಾಂಕ್ ಖಾತೆ ಇಲ್ಲದವರು. ಕನಿಷ್ಠ ಶೇಷ ಅಗತ್ಯವಿಲ್ಲ.",
+    "contact": "ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗೆ https://pmjdy.gov.in ಗೆ ಭೇಟಿ ನೀಡಿ ಅಥವಾ ನಿಮ್ಮ najdiki ಬ್ಯಾಂಕ್ ಶಾಖೆಯನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+    "language": "kn",
+    "category": "Saving"
+  },
+  {
+    "id": "10",
+    "name": "Government of India",
+    "title": "Pradhan Mantri Mudra Yojana (PMMY)",
+    "content": "Pradhan Mantri Mudra Yojana (PMMY) is a scheme launched by the Government of India to provide loans up to Rs. 10 lakh to non-corporate, non-farm small/micro enterprises. The loans are given by commercial banks, RRBs, small finance banks, MFIs, and NBFCs. The scheme aims to promote entrepreneurship and self-employment among the youth and small business owners.",
+    "eligibility": "Non-corporate, non-farm small/micro enterprises in manufacturing, trading, and service sectors, including allied agricultural activities.",
+    "contact": "Visit https://mudra.org.in or contact your nearest bank branch for more details.",
+    "language": "en",
+    "category": "Entrepreneurship"
+  },
+  {
+    "id": "11",
+    "name": "भारत सरकार",
+    "title": "प्रधान मंत्री मुद्रा योजना (पीएमएमवाई)",
+    "content": "प्रधान मंत्री मुद्रा योजना (पीएमएमवाई) भारत सरकार द्वारा शुरू की गई एक योजना है, जिसके तहत गैर-कॉर्पोरेट, गैर-कृषि लघु/सूक्ष्म उद्यमों को 10 लाख रुपये तक का ऋण प्रदान किया जाता है। ये ऋण वाणिज्यिक बैंकों, आरआरबी, स्मॉल फाइनेंस बैंकों, एमएफआई और एनबीएफसी द्वारा दिए जाते हैं। इस योजना का उद्देश्य युवाओं और छोटे व्यवसाय मालिकों के बीच उद्यमिता और स्वरोजगार को बढ़ावा देना है।",
+    "eligibility": "निर्माण, व्यापार और सेवा क्षेत्रों में गैर-कॉर्पोरेट, गैर-कृषि लघु/सूक्ष्म उद्यम, जिसमें संबद्ध कृषि गतिविधियाँ भी शामिल हैं।",
+    "contact": "अधिक जानकारी के लिए https://mudra.org.in पर जाएँ या अपने नजदीकी बैंक शाखा से संपर्क करें।",
+    "language": "hi",
+    "category": "Entrepreneurship"
+  },
+  {
+    "id": "12",
+    "name": "ಭಾರತ ಸರ್ಕಾರ",
+    "title": "ಪ್ರಧಾನಮಂತ್ರಿ ಮುದ್ರಾ ಯೋಜನೆ (PMMY)",
+    "content": "ಪ್ರಧಾನಮಂತ್ರಿ ಮುದ್ರಾ ಯೋಜನೆ (PMMY) ಭಾರತ ಸರ್ಕಾರದ ಯೋಜನೆಯಾಗಿದ್ದು, ಕಾರ್ಪೊರೇಟ್ ಅಲ್ಲದ, ಕೃಷಿ ಅಲ್ಲದ ಸಣ್ಣ/ಸೂಕ್ಷ್ಮ ಉದ್ಯಮಗಳಿಗೆ ರೂ. 10 ಲಕ್ಷವರೆಗೆ ಸಾಲವನ್ನು ಒದಗಿಸುತ್ತದೆ. ಈ ಸಾಲಗಳನ್ನು ವಾಣಿಜ್ಯ ಬ್ಯಾಂಕ್‌ಗಳು, ಪ್ರಾದೇಶಿಕ ಗ್ರಾಮೀಣ ಬ್ಯಾಂಕ್‌ಗಳು, ಸ್ಮಾಲ್ ಫೈನಾನ್ಸ್ ಬ್ಯಾಂಕ್‌ಗಳು, ಎಂಎಫ್‌ಐಗಳು ಮತ್ತು ಎನ್‌ಬಿಎಫ್‌ಸಿ‌ಗಳು ನೀಡುತ್ತವೆ. ಈ ಯೋಜನೆಯು ಯುವಕರು ಮತ್ತು ಸಣ್ಣ ಉದ್ಯಮ ಮಾಲೀಕರಲ್ಲಿ ಉದ್ಯಮಶೀಲತೆ ಮತ್ತು ಸ್ವಯಂ ಉದ್ಯೋಗವನ್ನು ಉತ್ತೇಜಿಸುವ ಗುರಿಯನ್ನು ಹೊಂದಿದೆ.",
+    "eligibility": "ಉತ್ಪಾದನೆ, ವ್ಯಾಪಾರ ಮತ್ತು ಸೇವಾ ಕ್ಷೇತ್ರಗಳಲ್ಲಿ ಕಾರ್ಪೊರೇಟ್ ಅಲ್ಲದ, ಕೃಷಿ ಅಲ್ಲದ ಸಣ್ಣ/ಸೂಕ್ಷ್ಮ ಉದ್ಯಮಗಳು, ಸಹಾಯಕ ಕೃಷಿ ಚಟುವಟಿಕೆಗಳನ್ನು ಒಳಗೊಂಡಂತೆ.",
+    "contact": "ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗೆ https://mudra.org.in ಗೆ ಭೇಟಿ ನೀಡಿ ಅಥವಾ ನಿಮ್ಮ najdiki ಬ್ಯಾಂಕ್ ಶಾಖೆಯನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+    "language": "kn",
+    "category": "Entrepreneurship"
+  },
+  {
+    "id": "13",
+    "name": "Government of India",
+    "title": "Sukanya Samriddhi Yojana (SSY)",
+    "content": "Sukanya Samriddhi Yojana (SSY) is a government-backed savings scheme for the girl child, launched as part of the 'Beti Bachao, Beti Padhao' campaign. It offers a high interest rate and tax benefits to encourage parents to build a fund for the future education and marriage expenses of their daughters.",
+    "eligibility": "Parents or legal guardians of a girl child below the age of 10 years can open an SSY account. Only one account per girl child is allowed, and a family can open up to two accounts (three in case of twins/triplets).",
+    "contact": "Visit https://www.india.gov.in/sukanya-samriddhi-yojana or contact your nearest post office or bank branch for more details.",
+    "language": "en",
+    "category": "Saving"
+  },
+  {
+    "id": "14",
+    "name": "भारत सरकार",
+    "title": "सुकन्या समृद्धि योजना (एसएसवाई)",
+    "content": "सुकन्या समृद्धि योजना (एसएसवाई) बालिका के लिए भारत सरकार द्वारा शुरू की गई एक बचत योजना है, जो 'बेटी बचाओ, बेटी पढ़ाओ' अभियान का हिस्सा है। यह योजना उच्च ब्याज दर और कर लाभ प्रदान करती है, जिससे माता-पिता अपनी बेटियों की शिक्षा और विवाह के लिए भविष्य निधि बना सकें।",
+    "eligibility": "10 वर्ष से कम आयु की बालिका के माता-पिता या अभिभावक एसएसवाई खाता खोल सकते हैं। एक बालिका के लिए एक ही खाता खोला जा सकता है, और एक परिवार में दो खाते (जुड़वां/तीन बच्चियों के मामले में तीन) खोले जा सकते हैं।",
+    "contact": "अधिक जानकारी के लिए https://www.india.gov.in/sukanya-samriddhi-yojana पर जाएँ या अपने नजदीकी डाकघर या बैंक शाखा से संपर्क करें।",
+    "language": "hi",
+    "category": "Saving"
+  },
+  {
+    "id": "15",
+    "name": "ಭಾರತ ಸರ್ಕಾರ",
+    "title": "ಸುಕನ್ಯಾ ಸಮೃದ್ಧಿ ಯೋಜನೆ (SSY)",
+    "content": "ಸುಕನ್ಯಾ ಸಮೃದ್ಧಿ ಯೋಜನೆ (SSY) 'ಬೆಟ್ಟೀ ಬಚಾವೋ, ಬೆಟ್ಟೀ ಪಡಾವೋ' ಅಭಿಯಾನದ ಭಾಗವಾಗಿ ಭಾರತ ಸರ್ಕಾರದ ಬೆಂಬಲಿತ ಹುಡುಗಿಯರ ಉಳಿತಾಯ ಯೋಜನೆಯಾಗಿದೆ. ಇದು ಹೆಣ್ಣುಮಕ್ಕಳ ಭವಿಷ್ಯದ ಶಿಕ್ಷಣ ಮತ್ತು ವಿವಾಹ ವೆಚ್ಚಗಳಿಗಾಗಿ ಪೋಷಕರು ನಿಧಿ ನಿರ್ಮಿಸಲು ಪ್ರೋತ್ಸಾಹಿಸಲು ಹೆಚ್ಚಿನ ಬಡ್ಡಿದರ ಮತ್ತು ತೆರಿಗೆ ಸೌಲಭ್ಯಗಳನ್ನು ನೀಡುತ್ತದೆ.",
+    "eligibility": "10 ವರ್ಷಕ್ಕಿಂತ ಕಡಿಮೆ ವಯಸ್ಸಿನ ಹುಡುಗಿಯ ಪೋಷಕರು ಅಥವಾ ಕಾನೂನು ಪಾಲಕರು SSY ಖಾತೆಯನ್ನು ತೆರೆಯಬಹುದು. ಪ್ರತಿ ಹುಡುಗಿಗೆ ಒಂದು ಖಾತೆ ಮಾತ್ರ, ಮತ್ತು ಒಂದು ಕುಟುಂಬದಲ್ಲಿ ಎರಡು ಖಾತೆಗಳು (ಜುಮ್ಲೆ/ತ್ರಿಪ್ಲೆಟ್‌ಗಳಿದ್ದರೆ ಮೂರು) ತೆರೆಯಬಹುದು.",
+    "contact": "ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗೆ https://www.india.gov.in/sukanya-samriddhi-yojana ಗೆ ಭೇಟಿ ನೀಡಿ ಅಥವಾ ನಿಮ್ಮ najdiki ಪೋಸ್ಟ್ ಆಫೀಸ್ ಅಥವಾ ಬ್ಯಾಂಕ್ ಶಾಖೆಯನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+    "language": "kn",
+    "category": "Saving"
+  },
+  {
+    "id": "16",
+    "name": "Government of India",
+    "title": "Senior Citizens Savings Scheme (SCSS)",
+    "content": "The Senior Citizens Savings Scheme (SCSS) is a government-backed savings instrument for individuals aged 60 years and above. It offers a high interest rate, quarterly payouts, and tax benefits, making it a popular choice for retirees seeking safe and regular income.",
+    "eligibility": "Indian citizens aged 60 years or above. Retired defense personnel can apply from age 55.",
+    "contact": "Visit https://www.indiapost.gov.in or contact your nearest post office or bank branch for more details.",
+    "language": "en",
+    "category": "Senior Citizen"
+  },
+  {
+    "id": "17",
+    "name": "भारत सरकार",
+    "title": "वरिष्ठ नागरिक बचत योजना (SCSS)",
+    "content": "वरिष्ठ नागरिक बचत योजना (SCSS) 60 वर्ष और उससे अधिक आयु के व्यक्तियों के लिए एक सरकारी बचत योजना है। इसमें उच्च ब्याज दर, तिमाही भुगतान और कर लाभ मिलते हैं, जिससे यह सेवानिवृत्त लोगों के लिए सुरक्षित और नियमित आय का लोकप्रिय विकल्प है।",
+    "eligibility": "60 वर्ष या उससे अधिक आयु के भारतीय नागरिक। सेवानिवृत्त रक्षा कर्मी 55 वर्ष की आयु से आवेदन कर सकते हैं।",
+    "contact": "अधिक जानकारी के लिए https://www.indiapost.gov.in पर जाएँ या अपने नजदीकी डाकघर या बैंक शाखा से संपर्क करें।",
+    "language": "hi",
+    "category": "Senior Citizen"
+  },
+  {
+    "id": "18",
+    "name": "ಭಾರತ ಸರ್ಕಾರ",
+    "title": "ವಯೋವೃದ್ಧ ನಾಗರಿಕರ ಉಳಿತಾಯ ಯೋಜನೆ (SCSS)",
+    "content": "ವಯೋವೃದ್ಧ ನಾಗರಿಕರ ಉಳಿತಾಯ ಯೋಜನೆ (SCSS) 60 ವರ್ಷ ಮತ್ತು ಅದಕ್ಕಿಂತ ಮೇಲ್ಪಟ್ಟ ವ್ಯಕ್ತಿಗಳಿಗಾಗಿ ಸರ್ಕಾರದ ಬೆಂಬಲಿತ ಉಳಿತಾಯ ಯೋಜನೆಯಾಗಿದೆ. ಇದು ಹೆಚ್ಚಿನ ಬಡ್ಡಿದರ, ತ್ರೈಮಾಸಿಕ ಪಾವತಿ ಮತ್ತು ತೆರಿಗೆ ಸೌಲಭ್ಯಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ, ನಿವೃತ್ತರಾದವರಿಗೆ ಸುರಕ್ಷಿತ ಮತ್ತು ನಿಯಮಿತ ಆದಾಯವನ್ನು ನೀಡುತ್ತದೆ.",
+    "eligibility": "60 ವರ್ಷ ಅಥವಾ ಅದಕ್ಕಿಂತ ಮೇಲ್ಪಟ್ಟ ಭಾರತೀಯ ನಾಗರಿಕರು. ನಿವೃತ್ತ ರಕ್ಷಣಾ ಸಿಬ್ಬಂದಿ 55 ವರ್ಷದಿಂದ ಅರ್ಜಿ ಹಾಕಬಹುದು.",
+    "contact": "ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗೆ https://www.indiapost.gov.in ಗೆ ಭೇಟಿ ನೀಡಿ ಅಥವಾ ನಿಮ್ಮ najdiki ಪೋಸ್ಟ್ ಆಫೀಸ್ ಅಥವಾ ಬ್ಯಾಂಕ್ ಶಾಖೆಯನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+    "language": "kn",
+    "category": "Senior Citizen"
+  },
+  {
+    "id": "19",
+    "name": "இந்திய அரசு",
+    "title": "மூத்த குடிமக்கள் சேமிப்பு திட்டம் (SCSS)",
+    "content": "மூத்த குடிமக்கள் சேமிப்பு திட்டம் (SCSS) 60 வயது மற்றும் அதற்கு மேற்பட்டவர்களுக்கு அரசு ஆதரவுடன் வழங்கப்படும் சேமிப்பு திட்டமாகும். இது அதிக வட்டி விகிதம், காலாண்டு வருமானம் மற்றும் வரிவிலக்கு ஆகியவற்றை வழங்குகிறது, ஓய்வுபெற்றவர்களுக்கு பாதுகாப்பான மற்றும் நிலையான வருமானத்தை உறுதி செய்கிறது.",
+    "eligibility": "60 வயது மற்றும் அதற்கு மேற்பட்ட இந்திய குடிமக்கள். ஓய்வுபெற்ற பாதுகாப்பு பணியாளர்கள் 55 வயதில் விண்ணப்பிக்கலாம்.",
+    "contact": "மேலும் விவரங்களுக்கு https://www.indiapost.gov.in அல்லது அருகிலுள்ள தபால் நிலையம் அல்லது வங்கி கிளையை தொடர்புகொள்ளவும்.",
+    "language": "ta",
+    "category": "Senior Citizen"
+  },
+  {
+    "id": "20",
+    "name": "Government of India",
+    "title": "Pradhan Mantri Jeevan Jyoti Bima Yojana (PMJJBY)",
+    "content": "PMJJBY is a government-backed life insurance scheme for people aged 18-50 years, offering a life cover of Rs. 2 lakh at a low premium. It aims to provide affordable life insurance to all sections of society.",
+    "eligibility": "Indian citizens aged 18-50 years with a savings bank account.",
+    "contact": "Visit https://jansuraksha.gov.in or contact your bank for more details.",
+    "language": "en",
+    "category": "Insurance"
+  },
+  {
+    "id": "21",
+    "name": "भारत सरकार",
+    "title": "प्रधान मंत्री जीवन ज्योति बीमा योजना (PMJJBY)",
+    "content": "प्रधान मंत्री जीवन ज्योति बीमा योजना (PMJJBY) 18-50 वर्ष के लोगों के लिए एक सरकारी जीवन बीमा योजना है, जिसमें कम प्रीमियम पर 2 लाख रुपये का जीवन कवर मिलता है। इसका उद्देश्य समाज के सभी वर्गों को सस्ती जीवन बीमा सुविधा प्रदान करना है।",
+    "eligibility": "18-50 वर्ष के भारतीय नागरिक जिनके पास बचत बैंक खाता है।",
+    "contact": "अधिक जानकारी के लिए https://jansuraksha.gov.in पर जाएँ या अपने बैंक से संपर्क करें।",
+    "language": "hi",
+    "category": "Insurance"
+  },
+  {
+    "id": "22",
+    "name": "ಭಾರತ ಸರ್ಕಾರ",
+    "title": "ಪ್ರಧಾನಮಂತ್ರಿ ಜೀವನ್ ಜ್ಯೋತಿ ವಿಮಾ ಯೋಜನೆ (PMJJBY)",
+    "content": "ಪ್ರಧಾನಮಂತ್ರಿ ಜೀವನ್ ಜ್ಯೋತಿ ವಿಮಾ ಯೋಜನೆ (PMJJBY) 18-50 ವರ್ಷ ವಯಸ್ಸಿನವರಿಗೆ ಸರ್ಕಾರದ ಬೆಂಬಲಿತ ಜೀವ ವಿಮಾ ಯೋಜನೆಯಾಗಿದೆ, ಕಡಿಮೆ ಪ್ರೀಮಿಯಂನಲ್ಲಿ ರೂ. 2 ಲಕ್ಷ ಜೀವ ವಿಮಾ ಕವರ್ ನೀಡುತ್ತದೆ. ಇದು ಎಲ್ಲಾ ವರ್ಗದ ಜನರಿಗೆ ಅಗ್ಗದ ಜೀವ ವಿಮಾ ಒದಗಿಸುವ ಗುರಿಯನ್ನು ಹೊಂದಿದೆ.",
+    "eligibility": "18-50 ವರ್ಷ ವಯಸ್ಸಿನ ಭಾರತೀಯ ನಾಗರಿಕರು ಮತ್ತು ಉಳಿತಾಯ ಬ್ಯಾಂಕ್ ಖಾತೆ ಹೊಂದಿರುವವರು.",
+    "contact": "ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗೆ https://jansuraksha.gov.in ಗೆ ಭೇಟಿ ನೀಡಿ ಅಥವಾ ನಿಮ್ಮ ಬ್ಯಾಂಕ್ ಅನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+    "language": "kn",
+    "category": "Insurance"
+  },
+  {
+    "id": "23",
+    "name": "இந்திய அரசு",
+    "title": "பிரதான் மந்திரி ஜீவன் ஜ்யோதி பீமா திட்டம் (PMJJBY)",
+    "content": "பிரதான் மந்திரி ஜீவன் ஜ்யோதி பீமா திட்டம் (PMJJBY) 18-50 வயது மக்களுக்கு அரசு ஆதரவுடன் வழங்கப்படும் உயிர் காப்பீட்டு திட்டமாகும். குறைந்த பிரீமியத்தில் ரூ. 2 லட்சம் உயிர் காப்பீடு வழங்கப்படுகிறது. அனைத்து சமூகங்களுக்கும் மலிவான உயிர் காப்பீடு வழங்குவதே நோக்கம்.",
+    "eligibility": "18-50 வயது இந்திய குடிமக்கள் மற்றும் சேமிப்பு வங்கி கணக்கு வைத்திருப்பவர்கள்.",
+    "contact": "மேலும் விவரங்களுக்கு https://jansuraksha.gov.in அல்லது உங்கள் வங்கியை தொடர்புகொள்ளவும்.",
+    "language": "ta",
+    "category": "Insurance"
+  },
+  {
+    "id": "24",
+    "name": "Government of India",
+    "title": "Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (AB-PMJAY)",
+    "content": "Ayushman Bharat is a flagship health insurance scheme providing health cover of Rs. 5 lakh per family per year for secondary and tertiary care hospitalization to over 10 crore poor and vulnerable families.",
+    "eligibility": "Families identified as poor and vulnerable as per SECC data. No age or family size limit.",
+    "contact": "Visit https://pmjay.gov.in or contact your nearest empanelled hospital for more details.",
+    "language": "en",
+    "category": "Health"
+  },
+  {
+    "id": "25",
+    "name": "भारत सरकार",
+    "title": "आयुष्मान भारत प्रधानमंत्री जन आरोग्य योजना (AB-PMJAY)",
+    "content": "आयुष्मान भारत एक प्रमुख स्वास्थ्य बीमा योजना है, जिसमें 10 करोड़ से अधिक गरीब और कमजोर परिवारों को प्रति वर्ष प्रति परिवार 5 लाख रुपये का स्वास्थ्य कवर मिलता है।",
+    "eligibility": "SECC डेटा के अनुसार चिन्हित गरीब और कमजोर परिवार। कोई आयु या परिवार आकार सीमा नहीं।",
+    "contact": "अधिक जानकारी के लिए https://pmjay.gov.in पर जाएँ या अपने नजदीकी सूचीबद्ध अस्पताल से संपर्क करें।",
+    "language": "hi",
+    "category": "Health"
+  },
+  {
+    "id": "26",
+    "name": "ಭಾರತ ಸರ್ಕಾರ",
+    "title": "ಆಯುಷ್ಮಾನ್ ಭಾರತ ಪ್ರಧಾನಮಂತ್ರಿ ಜನ ಆರೊಗ್ಯ ಯೋಜನೆ (AB-PMJAY)",
+    "content": "ಆಯುಷ್ಮಾನ್ ಭಾರತ ಪ್ರಮುಖ ಆರೋಗ್ಯ ವಿಮಾ ಯೋಜನೆಯಾಗಿದ್ದು, 10 ಕೋಟಿ ಬಡ ಮತ್ತು ದುರ್ಬಲ ಕುಟುಂಬಗಳಿಗೆ ಪ್ರತಿ ವರ್ಷ ಪ್ರತಿ ಕುಟುಂಬಕ್ಕೆ ರೂ. 5 ಲಕ್ಷ ಆರೋಗ್ಯ ವಿಮಾ ಕವರ್ ಒದಗಿಸುತ್ತದೆ.",
+    "eligibility": "SECC ಡೇಟಾ ಪ್ರಕಾರ ಗುರುತಿಸಲಾದ ಬಡ ಮತ್ತು ದುರ್ಬಲ ಕುಟುಂಬಗಳು. ಯಾವುದೇ ವಯಸ್ಸು ಅಥವಾ ಕುಟುಂಬದ ಗಾತ್ರದ ಮಿತಿ ಇಲ್ಲ.",
+    "contact": "ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗೆ https://pmjay.gov.in ಗೆ ಭೇಟಿ ನೀಡಿ ಅಥವಾ ನಿಮ್ಮ najdiki ಪ್ಯಾನೆಲ್ ಆಸ್ಪತ್ರೆಯನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+    "language": "kn",
+    "category": "Health"
+  },
+  {
+    "id": "27",
+    "name": "இந்திய அரசு",
+    "title": "ஆயுஷ்மான் பாரத் பிரதான் மந்திரி ஜன் ஆரோக்யா திட்டம் (AB-PMJAY)",
+    "content": "ஆயுஷ்மான் பாரத் என்பது 10 கோடி ஏழை மற்றும் பாதிக்கப்பட்ட குடும்பங்களுக்கு ஆண்டுக்கு குடும்பத்திற்கு ரூ. 5 லட்சம் மருத்துவ காப்பீடு வழங்கும் முக்கியமான அரசு மருத்துவ காப்பீட்டு திட்டமாகும்.",
+    "eligibility": "SECC தரவின்படி ஏழை மற்றும் பாதிக்கப்பட்ட குடும்பங்கள். வயது அல்லது குடும்ப அளவு வரம்பில்லை.",
+    "contact": "மேலும் விவரங்களுக்கு https://pmjay.gov.in அல்லது அருகிலுள்ள பட்டியலிடப்பட்ட மருத்துவமனை தொடர்புகொள்ளவும்.",
+    "language": "ta",
+    "category": "Health"
+  },
+  {
+    "id": "28",
+    "name": "Government of India",
+    "title": "National Means-cum-Merit Scholarship Scheme (NMMSS)",
+    "content": "NMMSS is a scholarship scheme to provide financial support to meritorious students of economically weaker sections to prevent dropouts at class 8 and encourage them to continue their education at the secondary stage.",
+    "eligibility": "Students of class 9 from economically weaker sections who have secured at least 55% marks in class 8 and whose parental income is below the prescribed limit.",
+    "contact": "Visit https://scholarships.gov.in or contact your school for more details.",
+    "language": "en",
+    "category": "Scholarship"
+  },
+  {
+    "id": "29",
+    "name": "भारत सरकार",
+    "title": "राष्ट्रीय साधन-सह-मेधा छात्रवृत्ति योजना (NMMSS)",
+    "content": "राष्ट्रीय साधन-सह-मेधा छात्रवृत्ति योजना (NMMSS) आर्थिक रूप से कमजोर वर्ग के मेधावी छात्रों को कक्षा 8 के बाद पढ़ाई जारी रखने के लिए वित्तीय सहायता प्रदान करती है।",
+    "eligibility": "आर्थिक रूप से कमजोर वर्ग के वे छात्र जिन्होंने कक्षा 8 में कम से कम 55% अंक प्राप्त किए हों और जिनके माता-पिता की आय निर्धारित सीमा से कम हो।",
+    "contact": "अधिक जानकारी के लिए https://scholarships.gov.in पर जाएँ या अपने स्कूल से संपर्क करें।",
+    "language": "hi",
+    "category": "Scholarship"
+  },
+  {
+    "id": "30",
+    "name": "ಭಾರತ ಸರ್ಕಾರ",
+    "title": "ರಾಷ್ಟ್ರೀಯ ಸಾಧನ-ಸಹ-ಮೇಧಾ ವಿದ್ಯಾರ್ಥಿವೇತನ ಯೋಜನೆ (NMMSS)",
+    "content": "ರಾಷ್ಟ್ರೀಯ ಸಾಧನ-ಸಹ-ಮೇಧಾ ವಿದ್ಯಾರ್ಥಿವೇತನ ಯೋಜನೆ (NMMSS) ಆರ್ಥಿಕವಾಗಿ ದುರ್ಬಲ ವರ್ಗದ ಪ್ರತಿಭಾವಂತ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ 8ನೇ ತರಗತಿಯ ನಂತರ ಶಿಕ್ಷಣ ಮುಂದುವರಿಸಲು ಆರ್ಥಿಕ ಸಹಾಯವನ್ನು ಒದಗಿಸುತ್ತದೆ.",
+    "eligibility": "ಆರ್ಥಿಕವಾಗಿ ದುರ್ಬಲ ವರ್ಗದ ವಿದ್ಯಾರ್ಥಿಗಳು, 8ನೇ ತರಗತಿಯಲ್ಲಿ ಕನಿಷ್ಠ 55% ಅಂಕಗಳನ್ನು ಪಡೆದವರು ಮತ್ತು ಪೋಷಕರ ಆದಾಯ ನಿಗದಿತ ಮಿತಿಗಿಂತ ಕಡಿಮೆ ಇರುವವರು.",
+    "contact": "ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗೆ https://scholarships.gov.in ಗೆ ಭೇಟಿ ನೀಡಿ ಅಥವಾ ನಿಮ್ಮ ಶಾಲೆಯನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+    "language": "kn",
+    "category": "Scholarship"
+  },
+  {
+    "id": "31",
+    "name": "இந்திய அரசு",
+    "title": "தேசிய வருமானம் மற்றும் மேதைத் திறன் மாணவர் உதவித்திட்டம் (NMMSS)",
+    "content": "தேசிய வருமானம் மற்றும் மேதைத் திறன் மாணவர் உதவித்திட்டம் (NMMSS) என்பது பொருளாதார ரீதியாக பின்தங்கிய மாணவர்களுக்கு 8ஆம் வகுப்புக்குப் பிறகு கல்வியை தொடரும் வகையில் நிதி உதவி வழங்கும் திட்டமாகும்.",
+    "eligibility": "8ஆம் வகுப்பில் குறைந்தது 55% மதிப்பெண்கள் பெற்ற மற்றும் பெற்றோர் வருமானம் நிர்ணயிக்கப்பட்ட வரம்பிற்குள் உள்ள மாணவர்கள்.",
+    "contact": "மேலும் விவரங்களுக்கு https://scholarships.gov.in அல்லது உங்கள் பள்ளியை தொடர்புகொள்ளவும்.",
+    "language": "ta",
+    "category": "Scholarship"
   }
 ]
-

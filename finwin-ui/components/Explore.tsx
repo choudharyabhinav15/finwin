@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet, Modal, ScrollView } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, Modal, ScrollView, Image } from 'react-native';
 import * as Speech from 'expo-speech';
 import { useTranslation } from 'react-i18next';
 import articles from './articles.json';
 
 const Explore = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const [selectedArticle, setSelectedArticle] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
   const openArticle = (article) => {
     setSelectedArticle(article);
@@ -15,6 +16,7 @@ const Explore = () => {
   };
 
   const closeArticle = () => {
+    Speech.stop(); // Stop any ongoing speech
     setModalVisible(false);
     setSelectedArticle(null);
   };
@@ -26,8 +28,17 @@ const Explore = () => {
     }
   };
 
+  // Extract unique categories
+  const categories = ['All', ...Array.from(new Set(articles.filter(a => a.language === i18n.language).map(a => a.category)))];
+
+  // Filter articles by selected language and category
+  const filteredArticles = articles.filter(a => a.language === i18n.language && (selectedCategory === 'All' || a.category === selectedCategory));
+
   const renderItem = ({ item }) => (
     <TouchableOpacity style={styles.tile} onPress={() => openArticle(item)}>
+      {item.image && (
+        <Image source={{ uri: item.image }} style={styles.tileImage} resizeMode="cover" />
+      )}
       <Text style={styles.tileTitle}>{item.title}</Text>
       <Text style={styles.tileSubtitle}>{item.name}</Text>
     </TouchableOpacity>
@@ -35,9 +46,21 @@ const Explore = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Explore Articles</Text>
+      <Text style={styles.header}>{t('Explore Articles')}</Text>
+      {/* Category Selector */}
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.categoryScroll} contentContainerStyle={styles.categoryContainer}>
+        {categories.map(category => (
+          <TouchableOpacity
+            key={category}
+            style={[styles.categoryButton, selectedCategory === category && styles.categoryButtonSelected]}
+            onPress={() => setSelectedCategory(category)}
+          >
+            <Text style={[styles.categoryText, selectedCategory === category && styles.categoryTextSelected]}>{category}</Text>
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
       <FlatList
-        data={articles}
+        data={filteredArticles}
         renderItem={renderItem}
         keyExtractor={item => item.id}
         numColumns={2}
@@ -48,26 +71,29 @@ const Explore = () => {
           <ScrollView contentContainerStyle={[styles.modalContent, { paddingBottom: 100 }]}> {/* Add bottom padding for footer */}
             {selectedArticle && (
               <>
-                <Text style={styles.label}>Name:</Text>
+                {selectedArticle.image && (
+                  <Image source={{ uri: selectedArticle.image }} style={styles.modalImage} resizeMode="contain" />
+                )}
+                <Text style={styles.label}>{t('Name')}:</Text>
                 <Text style={styles.value}>{selectedArticle.name}</Text>
-                <Text style={styles.label}>Title:</Text>
+                <Text style={styles.label}>{t('Title')}:</Text>
                 <Text style={styles.value}>{selectedArticle.title}</Text>
-                <Text style={styles.label}>Content:</Text>
+                <Text style={styles.label}>{t('Content')}:</Text>
                 <Text style={styles.value}>{selectedArticle.content}</Text>
-                <Text style={styles.label}>Eligibility:</Text>
+                <Text style={styles.label}>{t('Eligibility')}:</Text>
                 <Text style={styles.value}>{selectedArticle.eligibility}</Text>
-                <Text style={styles.label}>Contact Details:</Text>
+                <Text style={styles.label}>{t('Contact Details')}:</Text>
                 <Text style={styles.value}>{selectedArticle.contact}</Text>
               </>
             )}
           </ScrollView>
           {/* Floating footer with two buttons */}
           <View style={styles.floatingFooter}>
-            <TouchableOpacity style={[styles.speakBtn, { flex: 1, marginRight: 8 }]} onPress={speakArticle}>
-              <Text style={styles.speakBtnText}>Read Aloud</Text>
+            <TouchableOpacity style={styles.speakBtn} onPress={speakArticle}>
+              <Text style={styles.speakBtnText}>{t('Read Aloud')}</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.closeBtn, { flex: 1 }]} onPress={closeArticle}>
-              <Text style={styles.closeBtnText}>Close</Text>
+            <TouchableOpacity style={styles.closeBtn} onPress={closeArticle}>
+              <Text style={styles.closeBtnText}>{t('Close')}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -94,12 +120,23 @@ const styles = StyleSheet.create({
   },
   tile: {
     backgroundColor: '#f3f0ff',
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 16,
     margin: 8,
-    width: 150,
+    width: 170,
     alignItems: 'center',
-    elevation: 2,
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 6,
+  },
+  tileImage: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    marginBottom: 8,
+    backgroundColor: '#e0e0e0',
   },
   tileTitle: {
     fontSize: 16,
@@ -131,11 +168,13 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   closeBtn: {
-    marginTop: 24,
     backgroundColor: '#1e2a78',
-    padding: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
     borderRadius: 8,
     alignItems: 'center',
+    marginRight: 12,
+    minWidth: 100,
   },
   closeBtnText: {
     color: '#fff',
@@ -143,11 +182,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   speakBtn: {
-    marginTop: 12,
     backgroundColor: '#1e2a78',
-    padding: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
     borderRadius: 8,
     alignItems: 'center',
+    minWidth: 100,
   },
   speakBtnText: {
     color: '#fff',
@@ -164,8 +204,40 @@ const styles = StyleSheet.create({
     padding: 16,
     borderTopWidth: 1,
     borderColor: '#eee',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     zIndex: 100,
+    gap: 16, // Add gap between buttons
+  },
+  categoryScroll: {
+    marginBottom: 16,
+  },
+  categoryContainer: {
+    alignItems: 'center',
+  },
+  categoryButton: {
+    backgroundColor: '#e1e1e1',
+    borderRadius: 16,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    margin: 4,
+  },
+  categoryButtonSelected: {
+    backgroundColor: '#1e2a78',
+  },
+  categoryText: {
+    color: '#333',
+    fontWeight: '500',
+  },
+  categoryTextSelected: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  modalImage: {
+    width: '100%',
+    height: 180,
+    borderRadius: 12,
+    marginBottom: 16,
+    backgroundColor: '#f3f0ff',
   },
 });
 
