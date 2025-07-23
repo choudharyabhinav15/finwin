@@ -80,7 +80,7 @@ const Dashboard = () => {
   }, [data, customMode, customApplied, fromDate, toDate, filter, tabIndex]);
 
   if (loading) {
-    return <ActivityIndicator style={{ flex: 1 }} size="large" color="#5b00ff" />;
+    return <ActivityIndicator style={{ flex: 1 }} size="large" color="#1e2a78" />;
   }
 
   if (!data.length) {
@@ -98,7 +98,7 @@ const Dashboard = () => {
     categoryMap[key] += Number(item.amount);
   });
   const colorPalette = [
-    '#5b00ff', '#36A2EB', '#FF6384', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40', '#00C49A', '#FF6F61', '#FFD700'
+    '#1e2a78', '#36A2EB', '#FF6384', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40', '#00C49A', '#FF6F61', '#FFD700'
   ];
   // Pie chart data with category and total amount in label
   const pieData = Object.keys(categoryMap).map((cat, idx) => ({
@@ -300,7 +300,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#5b00ff',
+    color: '#1e2a78',
     marginBottom: 10,
     marginTop: 10,
     alignSelf: 'center',
@@ -320,7 +320,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
   },
   tabBtnActive: {
-    backgroundColor: '#5b00ff',
+    backgroundColor: '#1e2a78',
   },
   tabBtnText: {
     color: '#333',
@@ -340,7 +340,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
   },
   filterBtnActive: {
-    backgroundColor: '#5b00ff',
+    backgroundColor: '#1e2a78',
   },
   filterBtnText: {
     color: '#333',
@@ -357,7 +357,7 @@ const styles = StyleSheet.create({
   category: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#5b00ff',
+    color: '#1e2a78',
   },
   amount: {
     fontSize: 22,
@@ -386,7 +386,7 @@ const styles = StyleSheet.create({
   listAmount: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#5b00ff',
+    color: '#1e2a78',
   },
   drilldownTable: {
     marginTop: 24,
@@ -402,7 +402,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
     marginBottom: 8,
-    color: '#5b00ff',
+    color: '#1e2a78',
   },
   tableHeader: {
     flexDirection: 'row',

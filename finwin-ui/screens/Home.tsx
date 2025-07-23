@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   },
   button: {
     flexDirection: 'row',
-    backgroundColor: '#5b00ff',
+    backgroundColor: '#1e2a78',
     paddingVertical: 14,
     paddingHorizontal: 20,
     borderRadius: 10,
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   },
    addGoalButton: {
     marginTop: 20,
-    backgroundColor: '#5b00ff',
+    backgroundColor: '#1e2a78',
     paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 30,

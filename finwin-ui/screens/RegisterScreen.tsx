@@ -77,7 +77,7 @@ const RegisterScreen = ({ navigation }: Props) => {
   return (
     <AuthLayout title={t('Register a New Account')}>
       <View style={styles.inputWrapper}>
-        <MaterialIcons name="person" size={20} color="#5b00ff" style={styles.icon} />
+        <MaterialIcons name="person" size={20} color="#1e2a78" style={styles.icon} />
         <RNTextInput
           placeholder={t('Name')}
           placeholderTextColor="#888"
@@ -87,7 +87,7 @@ const RegisterScreen = ({ navigation }: Props) => {
         />
       </View>
       <View style={styles.inputWrapper}>
-        <MaterialIcons name="email" size={20} color="#5b00ff" style={styles.icon} />
+        <MaterialIcons name="email" size={20} color="#1e2a78" style={styles.icon} />
         <RNTextInput
           placeholder={t('Email')}
           placeholderTextColor="#888"
@@ -99,7 +99,7 @@ const RegisterScreen = ({ navigation }: Props) => {
         />
       </View>
       <View style={styles.inputWrapper}>
-        <Ionicons name={isPasswordVisible ? "eye-off" : "eye"} size={20} color="#5b00ff" style={styles.icon} />
+        <Ionicons name={isPasswordVisible ? "eye-off" : "eye"} size={20} color="#1e2a78" style={styles.icon} />
         <RNTextInput
           placeholder={t('Password')}
           placeholderTextColor="#888"
@@ -109,11 +109,11 @@ const RegisterScreen = ({ navigation }: Props) => {
           style={styles.input}
         />
         <TouchableOpacity onPress={() => setIsPasswordVisible(!isPasswordVisible)}>
-          <Ionicons name={isPasswordVisible ? "eye" : "eye-off"} size={20} color="#5b00ff" />
+          <Ionicons name={isPasswordVisible ? "eye" : "eye-off"} size={20} color="#1e2a78" />
         </TouchableOpacity>
       </View>
       <View style={styles.inputWrapper}>
-        <Ionicons name={isConfirmPasswordVisible ? "eye-off" : "eye"} size={20} color="#5b00ff" style={styles.icon} />
+        <Ionicons name={isConfirmPasswordVisible ? "eye-off" : "eye"} size={20} color="#1e2a78" style={styles.icon} />
         <RNTextInput
           placeholder={t('Confirm Password')}
           placeholderTextColor="#888"
@@ -123,7 +123,7 @@ const RegisterScreen = ({ navigation }: Props) => {
           style={styles.input}
         />
         <TouchableOpacity onPress={() => setIsConfirmPasswordVisible(!isConfirmPasswordVisible)}>
-          <Ionicons name={isConfirmPasswordVisible ? "eye" : "eye-off"} size={20} color="#5b00ff" />
+          <Ionicons name={isConfirmPasswordVisible ? "eye" : "eye-off"} size={20} color="#1e2a78" />
         </TouchableOpacity>
       </View>
       {Object.values(errors).map((err, idx) => (
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
   button: {
-    backgroundColor: '#5b00ff',
+    backgroundColor: '#1e2a78',
     paddingVertical: 12,
     borderRadius: 8,
     marginTop: 10,
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   link: {
-    color: '#5b00ff',
+    color: '#1e2a78',
     fontWeight: 'bold',
   },
 });

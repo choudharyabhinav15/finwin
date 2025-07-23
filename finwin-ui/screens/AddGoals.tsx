@@ -62,7 +62,7 @@ const AddGoals = () => {
         <Text style={styles.title}>{t('Add Financial Goal')}</Text>
 
         <View style={styles.inputGroup}>
-          <Ionicons name="trophy-outline" size={20} color="#5b00ff" style={styles.icon} />
+          <Ionicons name="trophy-outline" size={20} color="#1e2a78" style={styles.icon} />
           <Text style={styles.label}>{t('Goal')}</Text>
           <TextInput
             placeholder={t('Enter your goal')}
@@ -74,7 +74,7 @@ const AddGoals = () => {
         </View>
 
         <View style={styles.inputGroup}>
-          <Ionicons name="cash-outline" size={20} color="#5b00ff" style={styles.icon} />
+          <Ionicons name="cash-outline" size={20} color="#1e2a78" style={styles.icon} />
           <Text style={styles.label}>{t('Amount')}</Text>
           <TextInput
             placeholder={t('Enter amount')}
@@ -87,7 +87,7 @@ const AddGoals = () => {
         </View>
 
         <View style={styles.inputGroup}>
-          <Ionicons name="calendar-outline" size={20} color="#5b00ff" style={styles.icon} />
+          <Ionicons name="calendar-outline" size={20} color="#1e2a78" style={styles.icon} />
           <Text style={styles.label}>{t('Timeline')}</Text>
           <TextInput
             placeholder={t('Enter timeline (e.g., 12 months)')}
@@ -110,7 +110,7 @@ const AddGoals = () => {
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
-            <Ionicons name="checkmark-circle" size={60} color="#5b00ff" style={{ marginBottom: 10 }} />
+            <Ionicons name="checkmark-circle" size={60} color="#1e2a78" style={{ marginBottom: 10 }} />
             <Text style={styles.successText}>{t('Goal saved successfully!')}</Text>
             <TouchableOpacity style={styles.closeButton} onPress={() => setShowSuccessModal(false)}>
               <Text style={styles.closeButtonText}>{t('Close')}</Text>
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#5b00ff',
+    color: '#1e2a78',
     marginBottom: 20,
     textAlign: 'center',
   },
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   button: {
-    backgroundColor: '#5b00ff',
+    backgroundColor: '#1e2a78',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -198,7 +198,7 @@ const styles = StyleSheet.create({
   },
   closeButton: {
     marginTop: 20,
-    backgroundColor: '#5b00ff',
+    backgroundColor: '#1e2a78',
     paddingVertical: 10,
     paddingHorizontal: 24,
     borderRadius: 20,

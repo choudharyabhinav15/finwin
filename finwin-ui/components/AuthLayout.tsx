@@ -35,13 +35,13 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   title: {
-    color: '#5b00ff',
+    color: '#1e2a78',
     fontWeight: 'bold',
     fontSize: 28,
     marginTop: 16,
   },
   subtitle: {
-    color: '#5b00ff',
+    color: '#1e2a78',
     fontSize: 16,
     marginTop: 8,
     opacity: 0.9,

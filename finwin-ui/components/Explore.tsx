@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#5b00ff',
+    color: '#1e2a78',
     marginBottom: 16,
     alignSelf: 'center',
   },
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   tileTitle: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#5b00ff',
+    color: '#1e2a78',
     marginBottom: 4,
     textAlign: 'center',
   },
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
     marginTop: 12,
-    color: '#5b00ff',
+    color: '#1e2a78',
   },
   value: {
     fontSize: 15,
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
   },
   closeBtn: {
     marginTop: 24,
-    backgroundColor: '#5b00ff',
+    backgroundColor: '#1e2a78',
     padding: 12,
     borderRadius: 8,
     alignItems: 'center',
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   },
   speakBtn: {
     marginTop: 12,
-    backgroundColor: '#5b00ff',
+    backgroundColor: '#1e2a78',
     padding: 12,
     borderRadius: 8,
     alignItems: 'center',

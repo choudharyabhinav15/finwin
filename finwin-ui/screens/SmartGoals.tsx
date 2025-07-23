@@ -55,7 +55,7 @@ const SmartGoals = () => {
   if (loading) {
     return (
       <View style={styles.center}>
-        <ActivityIndicator size="large" color="#5b00ff" />
+        <ActivityIndicator size="large" color="#1e2a78" />
       </View>
     );
   }
@@ -77,7 +77,7 @@ const SmartGoals = () => {
       ) : (
         goals.map((goal) => (
           <View key={goal.id} style={styles.goalCard}>
-            <Ionicons name={goal.icon as any} size={24} color="#5b00ff" style={styles.goalIcon} />
+            <Ionicons name={goal.icon as any} size={24} color="#1e2a78" style={styles.goalIcon} />
             <View style={styles.goalDetails}>
               <Text style={styles.goalTitle}>{goal.title}</Text>
               <Text style={styles.goalAmount}>{t('Amount')}: ₹{goal.amount}</Text>
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#5b00ff',
+    color: '#1e2a78',
     marginBottom: 20,
   },
   goalCard: {
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
   },
   addButton: {
     marginTop: 30,
-    backgroundColor: '#5b00ff',
+    backgroundColor: '#1e2a78',
     paddingVertical: 12,
     paddingHorizontal: 24,
     borderRadius: 30,

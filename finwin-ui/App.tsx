@@ -47,7 +47,7 @@ const FooterTabs = ({ navigation }: FooterTabsProps) => (
         borderTopRightRadius: 20,
         elevation: 5,
       },
-      tabBarActiveTintColor: '#5b00ff',
+      tabBarActiveTintColor: '#1e2a78',
       tabBarInactiveTintColor: 'gray',
     }}
   >
@@ -133,7 +133,7 @@ const CustomDrawerContent = (props: CustomDrawerProps) => {
         <TouchableOpacity onPress={onLogout} style={styles.logoutButton}>
           <Ionicons name="log-out-outline" size={24} color="gray" />
         </TouchableOpacity>
-        <Ionicons name="person-circle-outline" size={60} color="#5b00ff" />
+        <Ionicons name="person-circle-outline" size={60} color="#1e2a78" />
         <Text style={styles.name}>{session?.user?.user_metadata?.name || 'FinWin User'}</Text>
         <Text style={styles.email}>{session?.user?.email}</Text>
       </View>
@@ -183,7 +183,7 @@ export default function App() {
   if (loading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator size="large" color="#5b00ff" />
+        <ActivityIndicator size="large" color="#1e2a78" />
       </View>
     );
   }

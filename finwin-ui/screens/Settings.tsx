@@ -26,7 +26,7 @@ const Section = ({ title, expanded, onToggle, children }: any) => (
       <Ionicons
         name={expanded ? 'chevron-up' : 'chevron-down'}
         size={20}
-        color="#5b00ff"
+        color="#1e2a78"
       />
     </TouchableOpacity>
     {expanded && <View style={styles.cardContent}>{children}</View>}
@@ -44,10 +44,10 @@ const Settings = () => {
   const [expenses, setExpenses] = useState('');
 
   const [expanded, setExpanded] = useState({
-    profile: false,
-    password: false,
-    salary: false,
-    language: false,
+    profile: true,
+    password: true,
+    salary: true,
+    language: true,
   });
 
   useEffect(() => {
@@ -234,7 +234,7 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#5b00ff',
+    color: '#1e2a78',
   },
   cardContent: {
     marginTop: 12,
@@ -253,7 +253,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   button: {
-    backgroundColor: '#5b00ff',
+    backgroundColor: '#1e2a78',
     paddingVertical: 12,
     borderRadius: 8,
     alignItems: 'center',
