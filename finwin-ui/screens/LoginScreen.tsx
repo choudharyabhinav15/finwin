@@ -19,31 +19,32 @@ const LoginScreen = ({ navigation }: Props) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const handleLogin = async () => {
-    setError(null);
+  setError(null);
 
-    const trimmedEmail = email.trim();
+  const trimmedEmail = email.trim();
 
-    if (!trimmedEmail || !password) {
-      setError(t('Please enter both email and password.'));
-      return;
+  if (!trimmedEmail || !password) {
+    setError(t('Please enter both email and password.'));
+    return;
+  }
+
+  setLoading(true);
+  const { error: signInError } = await supabase.auth.signInWithPassword({
+    email: trimmedEmail,
+    password,
+  });
+
+  if (signInError) {
+    if (signInError.message.toLowerCase().includes("missing email or phone")) {
+      setError(t('Email is required to login.'));
+    } else {
+      setError(signInError.message);
     }
+  }
 
-    setLoading(true);
-    const { error: signInError } = await supabase.auth.signInWithPassword({
-      email: trimmedEmail,
-      password,
-    });
+  setLoading(false);
+};
 
-    if (signInError) {
-      if (signInError.message.toLowerCase().includes("missing email or phone")) {
-        setError(t('Email is required to login.'));
-      } else {
-        setError(signInError.message);
-      }
-    }
-
-    setLoading(false);
-  };
 
   return (
     <AuthLayout title={t('Login to Your Account')}>
@@ -61,44 +62,33 @@ const LoginScreen = ({ navigation }: Props) => {
       </View>
 
       <View style={styles.inputWrapper}>
-        <MaterialIcons name="lock-outline" size={20} color="#5b00ff" style={styles.icon} />
+        <Ionicons name={isPasswordVisible ? "eye-off" : "eye"} size={20} color="#5b00ff" style={styles.icon} />
         <RNTextInput
           placeholder={t('Password')}
           placeholderTextColor="#888"
-          secureTextEntry={!isPasswordVisible}
           value={password}
           onChangeText={setPassword}
+          secureTextEntry={!isPasswordVisible}
           style={styles.input}
         />
         <TouchableOpacity onPress={() => setIsPasswordVisible(!isPasswordVisible)}>
-          <Ionicons
-            name={isPasswordVisible ? 'eye-off' : 'eye'}
-            size={20}
-            color="#5b00ff"
-            style={styles.iconRight}
-          />
+          <Ionicons name={isPasswordVisible ? "eye" : "eye-off"} size={20} color="#5b00ff" />
         </TouchableOpacity>
       </View>
 
-      {error && <Text style={styles.errorText}>{error}</Text>}
+      {error && <Text style={styles.error}>{error}</Text>}
 
-      {loading ? (
-        <ActivityIndicator color="#5b00ff" style={styles.button} />
-      ) : (
-        <TouchableOpacity
-          onPress={handleLogin}
-          style={styles.button}
-        >
-          <Text style={styles.buttonText}>{t('Login')}</Text>
-        </TouchableOpacity>
-      )}
+      <TouchableOpacity
+        onPress={handleLogin}
+        style={styles.button}
+        disabled={loading}
+      >
+        {loading ? <ActivityIndicator color="#fff" /> : <Text style={styles.buttonText}>{t('Login')}</Text>}
+      </TouchableOpacity>
 
-      <View style={styles.footer}>
-        <Text>{t("Don't have an account?")} </Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Register')} disabled={loading}>
-          <Text style={styles.link}>{t('Sign Up')}</Text>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity style={styles.link} onPress={() => navigation.navigate('Register')}>
+        <Text style={styles.linkText}>{t("Don't have an account? Register")}</Text>
+      </TouchableOpacity>
     </AuthLayout>
   );
 };

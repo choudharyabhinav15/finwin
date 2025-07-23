@@ -14,13 +14,16 @@ const Home = () => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+
       <FinancialIndexGauge index={financialHealthIndex} />
+
       <View style={styles.card}>
         <Text style={styles.title}>{t('Welcome to Your Dashboard')}</Text>
         <Text style={styles.body}>
           {t('Track your financial health, manage expenses, and stay informed.')}
         </Text>
       </View>
+
       <TouchableOpacity
         style={styles.addGoalButton}
         onPress={() => navigation.navigate('AddGoals')}
@@ -28,15 +31,18 @@ const Home = () => {
         <Ionicons name="add-circle-outline" size={20} color="#fff" style={{ marginRight: 6 }} />
         <Text style={styles.addGoalButtonText}>{t('Add a New Goal')}</Text>
       </TouchableOpacity>
+
       <View style={styles.actions}>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SmartGoals')}>
           <Ionicons name="wallet-outline" size={20} color="#fff" style={styles.icon} />
           <Text style={styles.buttonText}>{t('Track Expenses')}</Text>
         </TouchableOpacity>
+
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SmartGoals')}>
           <Ionicons name="bar-chart-outline" size={20} color="#fff" style={styles.icon} />
           <Text style={styles.buttonText}>{t('View Insights')}</Text>
         </TouchableOpacity>
+
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Settings')}>
           <Ionicons name="settings-outline" size={20} color="#fff" style={styles.icon} />
           <Text style={styles.buttonText}>{t('Settings')}</Text>

@@ -47,6 +47,7 @@ const Settings = () => {
     profile: false,
     password: false,
     salary: false,
+    language: false,
   });
 
   useEffect(() => {
@@ -92,7 +93,7 @@ const Settings = () => {
       phone,
     });
 
-    if (!error) Alert.alert(t('Success'), t('Profile updated'));
+    if (!error) Alert.alert('Success', 'Profile updated');
   };
 
   const handleChangePassword = async () => {
@@ -103,7 +104,7 @@ const Settings = () => {
     if (!error) {
       setCurrentPassword('');
       setNewPassword('');
-      Alert.alert(t('Success'), t('Password updated'));
+      Alert.alert('Success', 'Password updated');
     }
   };
 
@@ -118,30 +119,19 @@ const Settings = () => {
       expenses,
     });
 
-    if (!error) Alert.alert(t('Success'), t('Salary details updated'));
+    if (!error) Alert.alert('Success', 'Salary details updated');
   };
 
-  const handleLanguageChange = (lang: string) => {
-    i18n.changeLanguage(lang);
-  };
+  const languages = [
+    { code: 'en', label: 'English' },
+    { code: 'hi', label: 'Hindi' },
+    { code: 'ta', label: 'Tamil' },
+    { code: 'kn', label: 'Kannada' },
+    // Add more languages as needed
+  ];
 
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.languageSwitcher}>
-        <Text style={styles.languageLabel}>{t('Select Language')}:</Text>
-        <View style={styles.languageButtons}>
-          <TouchableOpacity onPress={() => handleLanguageChange('en')} style={[styles.langButton, i18n.language === 'en' && styles.langButtonActive]}>
-            <Text style={styles.langButtonText}>English</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleLanguageChange('hi')} style={[styles.langButton, i18n.language === 'hi' && styles.langButtonActive]}>
-            <Text style={styles.langButtonText}>हिंदी</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleLanguageChange('kn')} style={[styles.langButton, i18n.language === 'kn' && styles.langButtonActive]}>
-            <Text style={styles.langButtonText}>ಕನ್ನಡ</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-
       <Section
         title={t('Profile Details')}
         expanded={expanded.profile}
@@ -204,6 +194,22 @@ const Settings = () => {
           <Text style={styles.buttonText}>{t('Save')}</Text>
         </TouchableOpacity>
       </Section>
+
+      <Section
+        title={t('Language')}
+        expanded={expanded.language}
+        onToggle={() => toggleSection('language')}
+      >
+        {languages.map(lang => (
+          <TouchableOpacity
+            key={lang.code}
+            style={[styles.button, i18n.language === lang.code && { backgroundColor: '#36A2EB' }]}
+            onPress={() => i18n.changeLanguage(lang.code)}
+          >
+            <Text style={styles.buttonText}>{lang.label}</Text>
+          </TouchableOpacity>
+        ))}
+      </Section>
     </ScrollView>
   );
 };
@@ -256,36 +262,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     fontWeight: '600',
-  },
-  languageSwitcher: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: 16,
-    borderBottomWidth: 1,
-    borderColor: '#eee',
-    marginBottom: 16,
-  },
-  languageLabel: {
-    fontSize: 16,
-    color: '#333',
-  },
-  languageButtons: {
-    flexDirection: 'row',
-  },
-  langButton: {
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    borderRadius: 16,
-    backgroundColor: '#e0e0e0',
-    marginLeft: 8,
-  },
-  langButtonActive: {
-    backgroundColor: '#5b00ff',
-  },
-  langButtonText: {
-    color: '#333',
-    fontWeight: '500',
   },
 });
 

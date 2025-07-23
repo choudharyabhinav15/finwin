@@ -13,11 +13,11 @@ type Goal = {
 };
 
 const SmartGoals = () => {
-  const { t } = useTranslation();
   const [goals, setGoals] = useState<Goal[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const navigation = useNavigation<NavigationProp<RootTabParamList>>();
+  const { t } = useTranslation();
 
   const fetchGoals = async () => {
     setLoading(true);
@@ -63,27 +63,26 @@ const SmartGoals = () => {
   if (error) {
     return (
       <View style={styles.center}>
-        <Text style={styles.errorText}>⚠️ {error}</Text>
-        <TouchableOpacity onPress={fetchGoals} style={styles.retryButton}>
-          <Text style={styles.retryButtonText}>{t('Retry')}</Text>
-        </TouchableOpacity>
+        <Text style={styles.error}>{t(error)}</Text>
       </View>
     );
   }
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.heading}>🎯 {t('Financial Smart Goals')}</Text>
+      <Text style={styles.title}>{t('Your Financial Goals')}</Text>
 
       {goals.length === 0 ? (
-        <Text style={{ color: '#555', textAlign: 'center', marginTop: 20 }}>
-          {t('No goals found. Tap below to add one.')}
-        </Text>
+        <Text style={styles.noGoals}>{t('No goals found.')}</Text>
       ) : (
         goals.map((goal) => (
           <View key={goal.id} style={styles.goalCard}>
             <Ionicons name={goal.icon as any} size={24} color="#5b00ff" style={styles.goalIcon} />
-            <Text style={styles.goalText}>{goal.title}</Text>
+            <View style={styles.goalDetails}>
+              <Text style={styles.goalTitle}>{goal.title}</Text>
+              <Text style={styles.goalAmount}>{t('Amount')}: ₹{goal.amount}</Text>
+              <Text style={styles.goalTimeline}>{t('Timeline')}: {goal.timeline}</Text>
+            </View>
           </View>
         ))
       )}
@@ -92,7 +91,7 @@ const SmartGoals = () => {
         style={styles.addButton}
         onPress={() => navigation.navigate('AddGoals')}
       >
-        <Ionicons name="add-circle-outline" size={20} color="white" style={{ marginRight: 6 }} />
+        <Ionicons name="add-circle-outline" size={20} color="#fff" style={{ marginRight: 6 }} />
         <Text style={styles.addButtonText}>{t('Add New Goal')}</Text>
       </TouchableOpacity>
     </ScrollView>
@@ -105,7 +104,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     flexGrow: 1,
   },
-  heading: {
+  title: {
     fontSize: 22,
     fontWeight: 'bold',
     color: '#5b00ff',
@@ -126,10 +125,21 @@ const styles = StyleSheet.create({
   goalIcon: {
     marginRight: 12,
   },
-  goalText: {
+  goalDetails: {
+    flex: 1,
+  },
+  goalTitle: {
     fontSize: 16,
     color: '#333',
     flexShrink: 1,
+  },
+  goalAmount: {
+    fontSize: 14,
+    color: '#666',
+  },
+  goalTimeline: {
+    fontSize: 14,
+    color: '#666',
   },
   addButton: {
     marginTop: 30,
@@ -153,20 +163,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     padding: 20,
   },
-  errorText: {
+  error: {
     color: 'red',
     fontSize: 16,
     marginBottom: 12,
-  },
-  retryButton: {
-    backgroundColor: '#5b00ff',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 20,
-  },
-  retryButtonText: {
-    color: '#fff',
-    fontWeight: 'bold',
   },
 });
 

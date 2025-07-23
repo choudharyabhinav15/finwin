@@ -67,7 +67,7 @@ const RegisterScreen = ({ navigation }: Props) => {
     if (error) {
       setErrors({ form: error.message });
     } else if (!data.session) {
-      Alert.alert(t('Success!'), t('Please check your email for a verification link.'));
+      Alert.alert('Success!', 'Please check your email for a verification link.');
       navigation.navigate('Login');
     }
 
@@ -75,113 +75,66 @@ const RegisterScreen = ({ navigation }: Props) => {
   };
 
   return (
-    <AuthLayout title={t('Create Account')}>
+    <AuthLayout title={t('Register a New Account')}>
       <View style={styles.inputWrapper}>
-        <MaterialIcons name="person-outline" size={20} color="#5b00ff" style={styles.icon} />
+        <MaterialIcons name="person" size={20} color="#5b00ff" style={styles.icon} />
         <RNTextInput
           placeholder={t('Name')}
           placeholderTextColor="#888"
           value={name}
-          onChangeText={(text) => {
-            setName(text);
-            setErrors((prev) => ({ ...prev, name: undefined, form: undefined }));
-          }}
-          autoCapitalize="words"
+          onChangeText={setName}
           style={styles.input}
         />
       </View>
-      {errors.name && <Text style={styles.errorText}>{errors.name}</Text>}
-
       <View style={styles.inputWrapper}>
         <MaterialIcons name="email" size={20} color="#5b00ff" style={styles.icon} />
         <RNTextInput
           placeholder={t('Email')}
           placeholderTextColor="#888"
           value={email}
-          onChangeText={(text) => {
-            setEmail(text);
-            setErrors((prev) => ({ ...prev, email: undefined, form: undefined }));
-          }}
+          onChangeText={setEmail}
           keyboardType="email-address"
           autoCapitalize="none"
           style={styles.input}
         />
       </View>
-      {errors.email && <Text style={styles.errorText}>{errors.email}</Text>}
-
-      {/* Password */}
       <View style={styles.inputWrapper}>
-        <MaterialIcons name="lock-outline" size={20} color="#5b00ff" style={styles.icon} />
+        <Ionicons name={isPasswordVisible ? "eye-off" : "eye"} size={20} color="#5b00ff" style={styles.icon} />
         <RNTextInput
           placeholder={t('Password')}
           placeholderTextColor="#888"
           value={password}
-          onChangeText={(text) => {
-            setPassword(text);
-            setErrors((prev) => ({ ...prev, password: undefined, form: undefined }));
-          }}
+          onChangeText={setPassword}
           secureTextEntry={!isPasswordVisible}
           style={styles.input}
         />
         <TouchableOpacity onPress={() => setIsPasswordVisible(!isPasswordVisible)}>
-          <Ionicons
-            name={isPasswordVisible ? 'eye-off' : 'eye'}
-            size={20}
-            color="#5b00ff"
-            style={styles.iconRight}
-          />
+          <Ionicons name={isPasswordVisible ? "eye" : "eye-off"} size={20} color="#5b00ff" />
         </TouchableOpacity>
       </View>
-      {errors.password && <Text style={styles.errorText}>{errors.password}</Text>}
-
-      {/* Confirm Password */}
       <View style={styles.inputWrapper}>
-        <MaterialIcons name="lock" size={20} color="#5b00ff" style={styles.icon} />
+        <Ionicons name={isConfirmPasswordVisible ? "eye-off" : "eye"} size={20} color="#5b00ff" style={styles.icon} />
         <RNTextInput
           placeholder={t('Confirm Password')}
           placeholderTextColor="#888"
           value={confirmPassword}
-          onChangeText={(text) => {
-            setConfirmPassword(text);
-            setErrors((prev) => ({ ...prev, confirmPassword: undefined, form: undefined }));
-          }}
+          onChangeText={setConfirmPassword}
           secureTextEntry={!isConfirmPasswordVisible}
           style={styles.input}
         />
         <TouchableOpacity onPress={() => setIsConfirmPasswordVisible(!isConfirmPasswordVisible)}>
-          <Ionicons
-            name={isConfirmPasswordVisible ? 'eye-off' : 'eye'}
-            size={20}
-            color="#5b00ff"
-            style={styles.iconRight}
-          />
+          <Ionicons name={isConfirmPasswordVisible ? "eye" : "eye-off"} size={20} color="#5b00ff" />
         </TouchableOpacity>
       </View>
-      {errors.confirmPassword && <Text style={styles.errorText}>{errors.confirmPassword}</Text>}
-
-      {/* Form-level Error */}
-      {errors.form && <Text style={styles.errorText}>{errors.form}</Text>}
-
-      {/* Submit */}
-      {loading ? (
-        <ActivityIndicator color="#5b00ff" style={styles.button} />
-      ) : (
-        <TouchableOpacity
-          style={styles.button}
-          onPress={signUpWithEmail}
-          disabled={loading}
-        >
-          <Text style={styles.buttonText}>{t('Register')}</Text>
-        </TouchableOpacity>
-      )}
-
-      {/* Footer */}
-      <View style={styles.footer}>
-        <Text>{t('Already have an account?')} </Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Login')} disabled={loading}>
-          <Text style={styles.link}>{t('Sign In')}</Text>
-        </TouchableOpacity>
-      </View>
+      {Object.values(errors).map((err, idx) => (
+        <Text key={idx} style={styles.error}>{err}</Text>
+      ))}
+      <TouchableOpacity style={styles.button} onPress={signUpWithEmail} disabled={loading}>
+        {loading ? <ActivityIndicator color="#fff" /> : <Text style={styles.buttonText}>{t('Register')}</Text>}
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.link} onPress={() => navigation.navigate('Login')}>
+        <Text style={styles.linkText}>{t('Already have an account? Login')}</Text>
+      </TouchableOpacity>
     </AuthLayout>
   );
 };

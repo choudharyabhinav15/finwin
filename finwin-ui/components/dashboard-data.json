@@ -1,0 +1,27 @@
+[
+  { "amount": 1200, "Category": "Food", "Date": "2024-08-10" },
+  { "amount": 800, "Category": "Transport", "Date": "2024-08-15" },
+  { "amount": 1500, "Category": "Shopping", "Date": "2024-09-05" },
+  { "amount": 900, "Category": "Food", "Date": "2024-09-20" },
+  { "amount": 700, "Category": "Transport", "Date": "2024-10-02" },
+  { "amount": 2000, "Category": "Shopping", "Date": "2024-10-18" },
+  { "amount": 1100, "Category": "Food", "Date": "2024-11-12" },
+  { "amount": 950, "Category": "Transport", "Date": "2024-11-25" },
+  { "amount": 1700, "Category": "Shopping", "Date": "2024-12-03" },
+  { "amount": 1300, "Category": "Food", "Date": "2024-12-19" },
+  { "amount": 850, "Category": "Transport", "Date": "2025-01-07" },
+  { "amount": 2100, "Category": "Shopping", "Date": "2025-01-22" },
+  { "amount": 1250, "Category": "Food", "Date": "2025-02-14" },
+  { "amount": 900, "Category": "Transport", "Date": "2025-02-28" },
+  { "amount": 1600, "Category": "Shopping", "Date": "2025-03-10" },
+  { "amount": 1400, "Category": "Food", "Date": "2025-03-25" },
+  { "amount": 1000, "Category": "Transport", "Date": "2025-04-05" },
+  { "amount": 1800, "Category": "Shopping", "Date": "2025-04-18" },
+  { "amount": 1350, "Category": "Food", "Date": "2025-05-09" },
+  { "amount": 950, "Category": "Transport", "Date": "2025-05-23" },
+  { "amount": 1750, "Category": "Shopping", "Date": "2025-06-02" },
+  { "amount": 1450, "Category": "Food", "Date": "2025-06-17" },
+  { "amount": 1050, "Category": "Transport", "Date": "2025-07-01" },
+  { "amount": 1900, "Category": "Shopping", "Date": "2025-07-15" }
+]
+

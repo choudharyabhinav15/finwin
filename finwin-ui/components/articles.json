@@ -1,0 +1,19 @@
+[
+  {
+    "id": "1",
+    "name": "John Doe",
+    "title": "How to Save Money",
+    "content": "Saving money is important for your future. Start by tracking your expenses and setting a budget.",
+    "eligibility": "All users",
+    "contact": "john@example.com"
+  },
+  {
+    "id": "2",
+    "name": "Jane Smith",
+    "title": "Investing Basics",
+    "content": "Investing can help you grow your wealth. Learn about stocks, bonds, and mutual funds.",
+    "eligibility": "18+ years",
+    "contact": "jane@example.com"
+  }
+]
+

@@ -63,8 +63,9 @@ const AddGoals = () => {
 
         <View style={styles.inputGroup}>
           <Ionicons name="trophy-outline" size={20} color="#5b00ff" style={styles.icon} />
+          <Text style={styles.label}>{t('Goal')}</Text>
           <TextInput
-            placeholder={t('Goal Title')}
+            placeholder={t('Enter your goal')}
             placeholderTextColor="#888"
             style={styles.input}
             value={goal}
@@ -74,8 +75,9 @@ const AddGoals = () => {
 
         <View style={styles.inputGroup}>
           <Ionicons name="cash-outline" size={20} color="#5b00ff" style={styles.icon} />
+          <Text style={styles.label}>{t('Amount')}</Text>
           <TextInput
-            placeholder={t('Target Amount (e.g., 100000)')}
+            placeholder={t('Enter amount')}
             placeholderTextColor="#888"
             style={styles.input}
             keyboardType="numeric"
@@ -86,8 +88,9 @@ const AddGoals = () => {
 
         <View style={styles.inputGroup}>
           <Ionicons name="calendar-outline" size={20} color="#5b00ff" style={styles.icon} />
+          <Text style={styles.label}>{t('Timeline')}</Text>
           <TextInput
-            placeholder={t('Timeline (e.g., Dec 2025)')}
+            placeholder={t('Enter timeline (e.g., 12 months)')}
             placeholderTextColor="#888"
             style={styles.input}
             value={timeline}
@@ -96,7 +99,6 @@ const AddGoals = () => {
         </View>
 
         <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-          <Ionicons name="add-circle-outline" size={20} color="white" style={styles.buttonIcon} />
           <Text style={styles.buttonText}>{t('Save Goal')}</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
@@ -105,18 +107,13 @@ const AddGoals = () => {
         visible={showSuccessModal}
         transparent
         animationType="fade"
-        onRequestClose={() => setShowSuccessModal(false)}
       >
-        <View style={styles.modalOverlay}>
+        <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
-            <Ionicons name="checkmark-circle" size={48} color="#5b00ff" />
-            <Text style={styles.modalTitle}>{t('Goal Added!')}</Text>
-            <Text style={styles.modalText}>🎯 {goal} - ₹{amount} {t('by')} {timeline}</Text>
-            <TouchableOpacity
-              onPress={() => setShowSuccessModal(false)}
-              style={styles.modalButton}
-            >
-              <Text style={styles.modalButtonText}>{t('OK')}</Text>
+            <Ionicons name="checkmark-circle" size={60} color="#5b00ff" style={{ marginBottom: 10 }} />
+            <Text style={styles.successText}>{t('Goal saved successfully!')}</Text>
+            <TouchableOpacity style={styles.closeButton} onPress={() => setShowSuccessModal(false)}>
+              <Text style={styles.closeButtonText}>{t('Close')}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -151,6 +148,11 @@ const styles = StyleSheet.create({
   icon: {
     marginRight: 8,
   },
+  label: {
+    fontSize: 16,
+    color: '#333',
+    marginRight: 8,
+  },
   input: {
     flex: 1,
     height: 48,
@@ -174,7 +176,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 16,
   },
-  modalOverlay: {
+  modalContainer: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.5)',
     justifyContent: 'center',
@@ -187,25 +189,21 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     alignItems: 'center',
   },
-  modalTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#5b00ff',
+  successText: {
+    fontSize: 18,
+    fontWeight: '500',
+    color: '#333',
     marginTop: 12,
-  },
-  modalText: {
-    marginTop: 8,
     textAlign: 'center',
-    color: '#444',
   },
-  modalButton: {
+  closeButton: {
     marginTop: 20,
     backgroundColor: '#5b00ff',
     paddingVertical: 10,
     paddingHorizontal: 24,
     borderRadius: 20,
   },
-  modalButtonText: {
+  closeButtonText: {
     color: '#fff',
     fontWeight: '600',
   },
