@@ -9,7 +9,7 @@ import {
 } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { View, Text, StyleSheet, ActivityIndicator, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ActivityIndicator, TouchableOpacity, FlatList } from 'react-native';
 import { Session } from '@supabase/supabase-js';
 import { supabase } from './lib/supabase';
 import LoginScreen from './screens/LoginScreen';
@@ -129,6 +129,17 @@ const FooterTabs = ({ navigation }: FooterTabsProps) => (
         ),
       }}
     />
+    <Tab.Screen
+      name="All"
+      component={AllTab}
+      options={{
+        headerShown: true,
+        headerTitle: 'All Entries',
+        tabBarIcon: ({ color, size }) => (
+          <Ionicons name="list-outline" color={color} size={size} />
+        ),
+      }}
+    />
   </Tab.Navigator>
 );
 
@@ -174,6 +185,41 @@ const AuthNavigator = () => (
     <Stack.Screen name="Register" component={RegisterScreen} />
   </Stack.Navigator>
 );
+
+const AllTab = () => {
+  const [entries, setEntries] = useState<FinanceLogEntry[]>([]);
+
+  useEffect(() => {
+    const storedEntries = localStorage.getItem('financeLogEntry');
+    if (storedEntries) {
+      setEntries(JSON.parse(storedEntries));
+    }
+  }, []);
+
+  const deleteEntry = (index: number) => {
+    const updatedEntries = entries.filter((_, i) => i !== index);
+    setEntries(updatedEntries);
+    localStorage.setItem('financeLogEntry', JSON.stringify(updatedEntries));
+  };
+
+  return (
+    <FlatList
+      data={entries}
+      keyExtractor={(_, index) => index.toString()}
+      renderItem={({ item, index }) => (
+        <View style={styles.row}>
+          <Text style={styles.cell}>{item.entryType}</Text>
+          <Text style={styles.cell}>{item.amount}</Text>
+          <Text style={styles.cell}>{new Date(item.date).toLocaleDateString()}</Text>
+          <Text style={styles.cell}>{item.category}</Text>
+          <TouchableOpacity onPress={() => deleteEntry(index)}>
+            <Ionicons name="trash-outline" size={24} color="red" />
+          </TouchableOpacity>
+        </View>
+      )}
+    />
+  );
+};
 
 export default function App() {
   const [session, setSession] = useState<Session | null>(null);
@@ -250,5 +296,17 @@ const styles = StyleSheet.create({
   email: {
     fontSize: 14,
     color: 'gray',
+  },
+  row: {
+    flexDirection: 'row',
+    padding: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: '#e0e0e0',
+    alignItems: 'center',
+  },
+  cell: {
+    flex: 1,
+    fontSize: 16,
+    color: '#333',
   },
 });
