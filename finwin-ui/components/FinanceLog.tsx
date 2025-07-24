@@ -171,16 +171,12 @@ const FinanceLog = () => {
             </View>
           </>
         )}
-        <View style={styles.buttonRow}>
-          <TouchableOpacity style={styles.saveBtn} onPress={saveEntry}>
-            <Text style={styles.saveBtnText}>Save</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.clearBtn} onPress={clearForm}>
-            <Text style={styles.clearBtnText}>Clear</Text>
-          </TouchableOpacity>
-        </View>
       </View>
     );
+  };
+
+  const toggleIsRecurring = (value: boolean) => {
+    setIsRecurring(value);
   };
 
   return (
@@ -198,6 +194,14 @@ const FinanceLog = () => {
         ))}
       </View>
       {renderTabContent()}
+      <View style={styles.buttonRowAdjusted}>
+        <TouchableOpacity style={styles.saveBtn} onPress={saveEntry}>
+          <Text style={styles.saveBtnText}>Save</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.clearBtn} onPress={clearForm}>
+          <Text style={styles.clearBtnText}>Clear</Text>
+        </TouchableOpacity>
+      </View>
     </ScrollView>
   );
 };
@@ -268,6 +272,11 @@ const styles = StyleSheet.create({
     bottom: 20,
     left: 0,
     right: 0,
+  },
+  buttonRowAdjusted: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 20,
   },
   saveBtn: { backgroundColor: '#1e2a78', padding: 12, borderRadius: 8, minWidth: 100, alignItems: 'center' },
   saveBtnText: { color: '#fff', fontWeight: 'bold' },
